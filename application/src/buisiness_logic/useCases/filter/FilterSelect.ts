@@ -5,7 +5,7 @@ interface ISelectArgsDTO {
     selected?: number;
 }
 
-export class FilterSelectUseCase extends UseCaseBlueprint<IApplicationState, ISelectArgsDTO> {
+export class FilterSelect extends UseCaseBlueprint<IApplicationState, ISelectArgsDTO> {
     
     useCaseTitle = 'FilterSelect';
 
