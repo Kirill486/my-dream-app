@@ -4,7 +4,7 @@ import { ManageRemoveTodo } from "./useCases/manage/ManageRemoveTodo";
 import { ManageToggleDone } from "./useCases/manage/ManageToggleDone";
 
 export class ManageController {
-    public add = new ManageAddToDo(appStore);
-    public remove = new ManageRemoveTodo(appStore);
-    public toggleDone = new ManageToggleDone(appStore);
+    public static add = new ManageAddToDo(appStore);
+    public static remove = new ManageRemoveTodo(appStore);
+    public static toggleDone = new ManageToggleDone(appStore);
 }
