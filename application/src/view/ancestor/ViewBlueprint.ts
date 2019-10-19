@@ -3,16 +3,14 @@ import { isCallback, isValue } from "./behavior/argumentProbes";
 export abstract class ViewBlueprint<ViewModel> {
 
     containerId: string;
-    templateId: string;
+    abstract templateId: string;
     viewModel: ViewModel;
 
     constructor(
         containerId:string, 
-        templateId: string, 
         initialViewModel: ViewModel
         ) {
         this.containerId = containerId;
-        this.templateId = templateId;
         this.viewModel = initialViewModel;
     }
 
