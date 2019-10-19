@@ -1,6 +1,7 @@
 export interface IApplicationState {
     toDoList: IToDo[];
     filters: IFilterState;
+    misc: IMiscState;
 }
 
 export interface IFilterState {
@@ -14,6 +15,12 @@ export interface IToDo {
     description: string;
     done: boolean;
     createdTime: number;
-    savedTime: number;
-    doneTime: number;    
+    savedTime?: number;
+    doneTime?: number;    
+}
+
+export interface IMiscState {
+    nextId: number;
+    isModelSyncronized: boolean;
+    logQuenue: any[];
 }
