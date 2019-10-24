@@ -1,10 +1,10 @@
-import { IApplicationState } from '../../model/types';
+import { IApplicationState } from '../model/types';
 import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
-import { ITodoListVM, ITodoListDataVM, ITodoListActionVM } from '../../view/ToDoList/ToDoList';
-import { FilterController } from '../FilterController';
+import { ITodoListVM, ITodoListDataVM, ITodoListActionVM } from '../view/ToDoList/ToDoList';
+import { FilterController } from '../buisiness_logic/FilterController';
 
 export class TodoListViewController extends ViewControllerBlueprint<IApplicationState, ITodoListVM> {
-    map(state: IApplicationState) {
+    mapToVm(state: IApplicationState) {
         const todoListDataVM: ITodoListDataVM = {
             todoIds: state.toDoList,
             isDoneShown: state.filters.showDone,
