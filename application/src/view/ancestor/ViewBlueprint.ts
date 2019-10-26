@@ -1,3 +1,5 @@
+import { getTemplateById } from "./behavior/templateHelper";
+
 export abstract class ViewBlueprint<ViewModel> {
 
     abstract templateId: string;
@@ -20,16 +22,17 @@ export abstract class ViewBlueprint<ViewModel> {
             this.setViewModel(model);
         }
 
-        const viewEntry = document.getElementById(this.templateId);
-        if (viewEntry) {
-            this.mapViewModel(viewEntry);
+        const view = getTemplateById(this.templateId);
+
+        if (view) {
+            this.mapViewModel(view);
         } else {
             throw new Error(`Template not found id = ${this.templateId}`);
         }
 
         const container = document.getElementById(this.containerId);
         if (container) {
-            container.appendChild(viewEntry);
+            container.appendChild(view);
         } else {
             throw new Error(`Container is not found id = ${this.containerId}`);
         }
