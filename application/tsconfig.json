@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
       "target": "es6",
-      "module": "commonjs",
-      "outDir": "dist",
+      "module": "umd",
+      "outDir": "dist/js",
       "sourceMap": true
     },
     "include": [
