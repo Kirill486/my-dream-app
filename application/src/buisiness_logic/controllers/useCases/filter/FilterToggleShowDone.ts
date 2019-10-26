@@ -1,5 +1,5 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
-import { IApplicationState } from "../../../model/types";
+import { IApplicationState } from "../../../../model/types";
 
 interface IToggleShowDoneArgsDTO { };
 
