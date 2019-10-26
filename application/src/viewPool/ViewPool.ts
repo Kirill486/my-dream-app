@@ -19,10 +19,11 @@ export class ViewPool extends ViewPoolBlueprint<IApplicationState> {
         const toDOoListView = ToDoListView;
         const toDoListContainerId = 'todo-list__container';
         const toDoListViewModel: ITodoListVM = {
-            todoIds: [],
+            todos: [],
             isDoneShown: true,
             addToDo: () => console.log('add_todo'),
             toggleShowDone: () => console.log('toggle_show_done'),
+            switchDoneToDo: () => console.log('switch_done_todo'),
         }
         const toDoListViewController = new TodoListViewController(toDOoListView, toDoListContainerId, toDoListViewModel);
 
