@@ -1,4 +1,4 @@
-import { ModelBlueprint } from "../../../model/ancestor/ModelBlueprint";
+import { ModelBlueprint } from "../../../../model/ancestor/ModelBlueprint";
 
 // So, after we know whats happening usually in our application use cases we can
 

@@ -1,5 +1,5 @@
-import { IToDo, IApplicationState } from "../../../model/types";
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
+import { IToDo, IApplicationState } from "../../../../model/types";
 
 export class ManageAddToDo extends UseCaseBlueprint<IApplicationState, {}> {
     useCaseTitle = 'ManageAddToDo';
