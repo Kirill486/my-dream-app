@@ -1,6 +1,5 @@
 import { ViewBlueprint } from "../ancestor/ViewBlueprint";
 import { IToDo } from "../../model/types";
-import { getTemplateById } from "../ancestor/behavior/templateHelper";
 
 export interface ITodoListDataVM {
     todos: IToDo[],
@@ -20,7 +19,7 @@ ITodoListActionVM
 
 const mapToDosToEntries = (todos: IToDo[], switchDoneToDo) => {
     return todos.map((item, index) => {
-        const view = getTemplateById(this.childrenTemplateId);
+        const view = ViewBlueprint.getTemplateById(this.childrenTemplateId);
         const title = view.querySelector('.item__title');
         title.textContent = item.title;
         const checkBox = view.querySelector('.item__done') as HTMLInputElement;
@@ -38,7 +37,7 @@ export class ToDoListView extends ViewBlueprint<ITodoListVM> {
     mapViewModel(viewRoot: HTMLElement) {
         const {todos, isDoneShown, switchDoneToDo, addToDo, toggleShowDone} = this.viewModel;
 
-        const listEntry = getTemplateById(this.templateId);
+        const listEntry = ViewBlueprint.getTemplateById(this.templateId);
         
         const addTodoButton = listEntry.querySelector('.todo-list__add-todo');
         addTodoButton.addEventListener('click', () => addToDo());

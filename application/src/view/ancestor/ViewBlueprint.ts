@@ -1,10 +1,15 @@
-import { getTemplateById } from "./behavior/templateHelper";
-
 export abstract class ViewBlueprint<ViewModel> {
 
     abstract templateId: string;
     viewModel: ViewModel;
     containerId: string;
+
+    static getTemplateById(id: string): HTMLDivElement {
+        // jump out of document-fragment
+        const template = document.getElementById(id) as HTMLTemplateElement;
+        const instance = document.importNode(template.content, true).querySelector('div');
+        return instance;
+    }    
 
     constructor(
         containerId:string, 
@@ -22,7 +27,7 @@ export abstract class ViewBlueprint<ViewModel> {
             this.setViewModel(model);
         }
 
-        const view = getTemplateById(this.templateId);
+        const view = ViewBlueprint.getTemplateById(this.templateId);
 
         if (view) {
             this.mapViewModel(view);

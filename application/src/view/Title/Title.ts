@@ -1,6 +1,5 @@
 import { ViewBlueprint } from "../ancestor/ViewBlueprint";
 import { ITitleViewModel } from "./types";
-import { getTemplateById } from "../ancestor/behavior/templateHelper";
 
 export class TitleView extends ViewBlueprint<ITitleViewModel> {
     templateId = 'template__title';
