@@ -1,5 +1,5 @@
 import { FilterSelect } from "./useCases/filter/FilterSelect";
-import { appStore } from "../model/Model";
+import { appStore } from "../../model/Model";
 import { FilterToggleShowDone } from "./useCases/filter/FilterToggleShowDone";
 
 // we know exactley what use cases we have
