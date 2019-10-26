@@ -1,7 +1,8 @@
 import { IApplicationState } from '../model/types';
 import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
 import { ITodoListVM, ITodoListDataVM, ITodoListActionVM } from '../view/ToDoList/ToDoList';
-import { FilterController } from '../buisiness_logic/FilterController';
+import { FilterController } from '../buisiness_logic/controllers/FilterController';
+import { ManageController } from '../buisiness_logic/controllers/ManageController';
 
 export class TodoListViewController extends ViewControllerBlueprint<IApplicationState, ITodoListVM> {
     mapToVm(state: IApplicationState) {
@@ -11,8 +12,8 @@ export class TodoListViewController extends ViewControllerBlueprint<IApplication
         };
         const todoListActionVM: ITodoListActionVM = {
             toggleShowDone: () => FilterController.toggleShowDone.use({}),
-            addToDo: () => console.log('Add todo'),
-            switchDoneToDo: () => console.log('switchDone'),
+            addToDo: () => ManageController.add.use({}),
+            switchDoneToDo: (id: any) => ManageController.toggleDone.use({ id }),
         };
         const toDoListVM: ITodoListVM = {
             ...todoListDataVM,
