@@ -6,12 +6,13 @@ import { FilterController } from '../buisiness_logic/FilterController';
 export class TodoListViewController extends ViewControllerBlueprint<IApplicationState, ITodoListVM> {
     mapToVm(state: IApplicationState) {
         const todoListDataVM: ITodoListDataVM = {
-            todoIds: state.toDoList,
+            todos: state.toDoList,
             isDoneShown: state.filters.showDone,
         };
         const todoListActionVM: ITodoListActionVM = {
             toggleShowDone: () => FilterController.toggleShowDone.use({}),
             addToDo: () => console.log('Add todo'),
+            switchDoneToDo: () => console.log('switchDone'),
         };
         const toDoListVM: ITodoListVM = {
             ...todoListDataVM,
