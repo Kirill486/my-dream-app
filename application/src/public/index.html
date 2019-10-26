@@ -30,5 +30,30 @@
             <div class="todo-list__items-container"></div>
         </div>
     </template>
+
+    <template id="template__todo-details">
+        <div class="todo-details__container">
+            <div class="todo-details__header">
+                <h3 class="todo-details-title"></h3>
+                <input class="todo-details-done" type="checkbox">
+            </div>
+            <div class="todo-details__editor">
+                <textarea 
+                    class="todo-details-content"    
+                    cols="30" 
+                    rows="60">
+                </textarea>
+                <button class="todo-details__save">Save</button>
+            </div>
+            <div class="todo-details__statistic">
+                <span class="todo-datails__created"></span>
+                <span class="todo-datails__saved"></span>
+                <span class="todo-datails__done"></span>
+            </div>
+            <div class="todo-details-danger">
+                <button class="todo-detais__delete">Delete</button>
+            </div>
+        </div>
+    </template>
 </body>
 </html>
