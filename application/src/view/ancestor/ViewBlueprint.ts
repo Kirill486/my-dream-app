@@ -1,5 +1,3 @@
-import { isCallback, isValue } from "./behavior/argumentProbes";
-
 export abstract class ViewBlueprint<ViewModel> {
 
     abstract templateId: string;
@@ -13,6 +11,8 @@ export abstract class ViewBlueprint<ViewModel> {
         this.containerId = containerId;
         this.viewModel = initialViewModel;
     }
+
+    abstract mapViewModel(viewRoot: HTMLElement): void;
 
     public render(model: ViewModel = null): void {
         // if model we do update model
@@ -39,26 +39,4 @@ export abstract class ViewBlueprint<ViewModel> {
     public setViewModel(model: ViewModel): void {
         this.viewModel = model;        
     };
-
-    mapViewModel(viewEntry: HTMLElement) {
-
-        const modelKeys = Object.keys(this.viewModel);
-        for (let key of modelKeys) {
-            
-            const value = this.viewModel[key];
-            const correspondingControl = viewEntry.querySelector(`#${key}`);
-
-            if (correspondingControl) {
-                if (isCallback(value)) {
-                    viewEntry.addEventListener('click', value);
-                } else if (isValue(value)) {
-                    viewEntry.innerHTML = value;                        
-                } else {
-                    throw new Error(`Unsupported ViewModel value ${value} of type ${typeof value}`);
-                }
-            } else {
-                throw new Error(`Control not found id = ${key}`);
-            }            
-        }
-    }
 }
