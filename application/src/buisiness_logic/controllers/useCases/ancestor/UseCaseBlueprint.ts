@@ -1,4 +1,5 @@
 import { ModelBlueprint } from "../../../../model/ancestor/ModelBlueprint";
+import { BuisinessLogicBlueprint } from "../../../ancestor/BuisinessLogicBlueprint";
 
 // So, after we know whats happening usually in our application use cases we can
 
@@ -25,6 +26,7 @@ export abstract class UseCaseBlueprint<ApplicationState, argsDTO> {
         this.syncModel();
         this.syncModelWithStorage();
         this.logUseCase();
+        BuisinessLogicBlueprint.fireChangedEvent();
     }
 
     private syncModel() {
