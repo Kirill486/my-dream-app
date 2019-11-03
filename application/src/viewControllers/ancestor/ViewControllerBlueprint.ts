@@ -21,6 +21,6 @@ export abstract class ViewControllerBlueprint<ApplicationState, ViewModel> {
 
     render(state: ApplicationState) {
         this.viewModel = this.mapToVm(state);
-        // this.view.render(this.viewModel);
+        this.view.render(this.viewModel);
     }
 }

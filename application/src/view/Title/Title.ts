@@ -7,7 +7,7 @@ export class TitleView extends ViewBlueprint<ITitleViewModel> {
     mapViewModel(viewRoot: HTMLElement) {
         const title = ViewBlueprint.getTemplateById(this.templateId);
         const header = title.querySelector('h1');
-        header.title = this.viewModel.title;
+        header.textContent = this.viewModel.title;
         viewRoot.appendChild(title);
     }
 }
