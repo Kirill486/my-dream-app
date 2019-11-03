@@ -10,14 +10,14 @@ export class ViewPool extends ViewPoolBlueprint<IApplicationState> {
     
     createViewPool(): TApplicationView<IApplicationState>[] {
         const titleView = TitleView;
-        const titleContainerId = 'title__container';
+        const titleContainerId = 'app-title__container';
         const titleViewModel: ITitleViewModel = {
             title: '#ToDOManage',
         }
         const titleViewController = new TitleViewController(titleView, titleContainerId, titleViewModel);
         
         const toDOoListView = ToDoListView;
-        const toDoListContainerId = 'todo-list__container';
+        const toDoListContainerId = 'app-todo-list__container';
         const toDoListViewModel: ITodoListVM = {
             todos: [],
             isDoneShown: true,
