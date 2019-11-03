@@ -1,13 +1,14 @@
 {
-    "compilerOptions": {
-      "target": "es6",
-      "module": "umd",
-      "outDir": "dist/js",
-      "sourceMap": true
-    },
-    "include": [
-      "src/**/*.ts"
-    ],
-    "exclude": [ ]
-  }
+  "compilerOptions": {
+    "target": "es6",
+    "module": "amd",
+    "outDir": "./dist/js",
+    "lib": [ "es6", "dom" ],
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [ ]
+}
   
