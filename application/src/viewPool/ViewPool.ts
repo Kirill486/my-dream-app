@@ -8,7 +8,7 @@ import { ToDoListView, ITodoListVM } from "../view/ToDoList/ToDoList";
 
 export class ViewPool extends ViewPoolBlueprint<IApplicationState> {
     
-    createViewPool(): TApplicationView<IApplicationState>[] {
+    createViewPool(state: IApplicationState): TApplicationView<IApplicationState>[] {
         const titleView = TitleView;
         const titleContainerId = 'app-title__container';
         const titleViewModel: ITitleViewModel = {
@@ -19,8 +19,8 @@ export class ViewPool extends ViewPoolBlueprint<IApplicationState> {
         const toDOoListView = ToDoListView;
         const toDoListContainerId = 'app-todo-list__container';
         const toDoListViewModel: ITodoListVM = {
-            todos: [],
-            isDoneShown: true,
+            todos: state.toDoList,
+            isDoneShown: state.filters.showDone,
             addToDo: () => console.log('add_todo'),
             toggleShowDone: () => console.log('toggle_show_done'),
             switchDoneToDo: () => console.log('switch_done_todo'),
