@@ -4,10 +4,9 @@ import { ITitleViewModel } from "./types";
 export class TitleView extends ViewBlueprint<ITitleViewModel> {
     templateId = 'template__title';
 
-    mapViewModel(viewRoot: HTMLElement) {
-        const title = ViewBlueprint.getTemplateById(this.templateId);
+    mapViewModel() {
+        const title = this.getInstance();
         const header = title.querySelector('h1');
-        header.textContent = this.viewModel.title;
-        viewRoot.appendChild(title);
+        header.innerHTML = this.viewModel.title;
     }
 }

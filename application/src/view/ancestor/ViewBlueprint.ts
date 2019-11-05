@@ -1,3 +1,5 @@
+import { ViewPoolBlueprint } from "../../viewPool/ancestor/ViewPoolBlueprint";
+
 export abstract class ViewBlueprint<ViewModel> {
 
     abstract templateId: string;
@@ -9,7 +11,22 @@ export abstract class ViewBlueprint<ViewModel> {
         const template = document.getElementById(id) as HTMLTemplateElement;
         const instance = document.importNode(template.content, true).querySelector('div');
         return instance;
-    }    
+    }
+
+    // We restrict from having more then one view in a container;
+    
+    static emptyContainer(container: HTMLElement) {
+        const children = Array.from(container.children);
+        children.forEach(child => container.removeChild(child));
+    }
+
+    public getContainer() {
+        return document.getElementById(this.containerId)
+    }
+
+    public getInstance() {
+        return this.getContainer().firstChild as HTMLElement;
+    }
 
     constructor(
         containerId:string, 
@@ -17,9 +34,9 @@ export abstract class ViewBlueprint<ViewModel> {
         ) {
         this.containerId = containerId;
         this.viewModel = initialViewModel;
-    }
+    }    
 
-    abstract mapViewModel(viewRoot: HTMLElement): void;
+    abstract mapViewModel(): void;
 
     public render(model: ViewModel = null): void {
         // if model we do update model
@@ -27,20 +44,23 @@ export abstract class ViewBlueprint<ViewModel> {
             this.setViewModel(model);
         }
 
-        const view = ViewBlueprint.getTemplateById(this.templateId);
+        const container = this.getContainer();
 
-        if (view) {
-            this.mapViewModel(view);
-        } else {
-            throw new Error(`Template not found id = ${this.templateId}`);
-        }
-
-        const container = document.getElementById(this.containerId);
-        if (container) {
-            container.appendChild(view);
-        } else {
+        if (!container) {
             throw new Error(`Container is not found id = ${this.containerId}`);
         }
+
+        ViewBlueprint.emptyContainer(container);
+        
+        const view = ViewBlueprint.getTemplateById(this.templateId);
+
+        if (!view) {
+            throw new Error(`Template not found id = ${this.templateId}`);
+        }
+        
+        container.appendChild(view);
+
+        this.mapViewModel();
 
     }
 

@@ -10,6 +10,7 @@ export interface ITodoListActionVM {
     toggleShowDone: () => void;
     addToDo: () => void;
     switchDoneToDo: (id: any) => void;
+    selectToDo: (id: any) => void;
 }
 
 export interface ITodoListVM extends
@@ -17,14 +18,24 @@ ITodoListDataVM,
 ITodoListActionVM
 { }
 
-const mapToDosToEntries = (todos: IToDo[], switchDoneToDo) => {
+const mapToDosToEntries = (
+        todos: IToDo[], 
+        switchDoneToDo, 
+        childrenTemplateId,
+        selectToDo
+    ) => {
     return todos.map((item, index) => {
-        const view = ViewBlueprint.getTemplateById(this.childrenTemplateId);
+        const view = ViewBlueprint.getTemplateById(childrenTemplateId);
         const title = view.querySelector('.item__title');
         title.textContent = item.title;
+
         const checkBox = view.querySelector('.item__done') as HTMLInputElement;
         checkBox.checked = item.done;
         checkBox.addEventListener('change', () => switchDoneToDo(item.id));
+        
+        const selectArea = view.querySelector('.item__select-area');
+        selectArea.addEventListener('click', () => selectToDo(item.id));
+        
         return view;
     });
 }
@@ -34,26 +45,22 @@ export class ToDoListView extends ViewBlueprint<ITodoListVM> {
 
     childrenTemplateId = 'template__todo';
 
-    mapViewModel(viewRoot: HTMLElement) {
-        const {todos, isDoneShown, switchDoneToDo, addToDo, toggleShowDone} = this.viewModel;
+    mapViewModel() {
+        const {todos, isDoneShown, switchDoneToDo, addToDo, toggleShowDone, selectToDo} = this.viewModel;
 
-        const listEntry = ViewBlueprint.getTemplateById(this.templateId);
-        
-        const addTodoButton = listEntry.querySelector('.todo-list__add-todo');
+        const addTodoButton = this.getInstance().querySelector('.todo-list__add-todo');
         addTodoButton.addEventListener('click', () => addToDo());
 
-        const showDoneChackbox = listEntry.querySelector('.todo-list__show-done') as HTMLInputElement;
+        const showDoneChackbox = this.getInstance().querySelector('.todo-list__show-done') as HTMLInputElement;
         showDoneChackbox.checked = isDoneShown;
         showDoneChackbox.addEventListener('change', () => toggleShowDone());
 
-        const todosContainer = listEntry.querySelector('.todo-list__items-container');
+        const todosContainer = this.getInstance().querySelector('.todo-list__items-container');
 
-        const todoEntries = mapToDosToEntries(todos, switchDoneToDo);
+        const todoEntries = mapToDosToEntries(todos, switchDoneToDo, this.childrenTemplateId, selectToDo);
 
         todoEntries.forEach((item) => {
             todosContainer.appendChild(item);
         });
-
-        viewRoot.appendChild(listEntry);
     }
 }

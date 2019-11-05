@@ -21,7 +21,7 @@ export class ToDoDetails extends ViewBlueprint<ITodoDetailsVM> {
     
     templateId = 'template__todo-details';
     
-    mapViewModel(viewRoot) {
+    mapViewModel() {
         // not implemented yet
     }
 }
