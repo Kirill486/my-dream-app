@@ -5,7 +5,7 @@ export interface IApplicationState {
 }
 
 export interface IFilterState {
-    selected?: number;
+    selected?: any;
     showDone: boolean; 
 }
 
@@ -20,7 +20,6 @@ export interface IToDo {
 }
 
 export interface IMiscState {
-    nextId: number;
     isModelSyncronized: boolean;
     logQuenue: any[];
 }
