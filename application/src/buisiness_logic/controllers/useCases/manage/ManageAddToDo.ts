@@ -8,7 +8,7 @@ export class ManageAddToDo extends UseCaseBlueprint<IApplicationState, {}> {
     static toDoInitialDescription = '....Type here what shoud be done....';
 
     private createEmptyToDo() {
-        const id = this.state.misc.nextId;
+        const id = this.model.getNextId();
         const createdTime = Date.now();
         const title = ManageAddToDo.toDoInitialTitle;
         const description = ManageAddToDo.toDoInitialDescription;

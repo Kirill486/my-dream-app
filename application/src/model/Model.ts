@@ -8,13 +8,14 @@ const initialState: IApplicationState = {
     },
     toDoList: [],
     misc: {
-        nextId: 1,
         isModelSyncronized: true, // not implemented yet
         logQuenue: [], // not implemented yet
     }
 }
 
-class ApplicationModel extends ModelBlueprint<IApplicationState> {
+let nextId = 1
+
+export class ApplicationModel extends ModelBlueprint<IApplicationState> {
     // private state: S;
 
     constructor(initialState) {
@@ -23,9 +24,7 @@ class ApplicationModel extends ModelBlueprint<IApplicationState> {
     }
 
     public getNextId(): number {
-        const nextId = this.state.misc.nextId;
-        this.state.misc.nextId++;
-        return nextId;
+        return nextId++;
     }
 
     public getState() {
@@ -34,6 +33,7 @@ class ApplicationModel extends ModelBlueprint<IApplicationState> {
 
     public setState(state) {
         this.state = state;
+        console.log(state);
     }
 }
 
