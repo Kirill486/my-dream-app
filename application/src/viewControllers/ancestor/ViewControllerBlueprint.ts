@@ -6,16 +6,15 @@ export abstract class ViewControllerBlueprint<ApplicationState, ViewModel> {
     view: ViewBlueprint<ViewModel>;
     containerId: string;
 
-    viewModel: ViewModel;
+    // null untill first render
+    viewModel?: ViewModel;
 
-    constructor(ViewConstructor: any, containerId: string, initialViewModel: ViewModel) {
+    constructor(ViewConstructor: any, containerId: string) {
         
         this.containerId = containerId;
 
-        this.viewModel = initialViewModel;
         this.view = new ViewConstructor(this.containerId, this.viewModel);
     }
-
 
     abstract mapToVm(state: ApplicationState): ViewModel;
 

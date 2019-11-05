@@ -11,21 +11,13 @@ export class ViewPool extends ViewPoolBlueprint<IApplicationState> {
     createViewPool(state: IApplicationState): TApplicationView<IApplicationState>[] {
         const titleView = TitleView;
         const titleContainerId = 'app-title__container';
-        const titleViewModel: ITitleViewModel = {
-            title: '#ToDOManage',
-        }
-        const titleViewController = new TitleViewController(titleView, titleContainerId, titleViewModel);
+        
+        const titleViewController = new TitleViewController(titleView, titleContainerId);
         
         const toDOoListView = ToDoListView;
         const toDoListContainerId = 'app-todo-list__container';
-        const toDoListViewModel: ITodoListVM = {
-            todos: state.toDoList,
-            isDoneShown: state.filters.showDone,
-            addToDo: () => console.log('add_todo'),
-            toggleShowDone: () => console.log('toggle_show_done'),
-            switchDoneToDo: () => console.log('switch_done_todo'),
-        }
-        const toDoListViewController = new TodoListViewController(toDOoListView, toDoListContainerId, toDoListViewModel);
+        
+        const toDoListViewController = new TodoListViewController(toDOoListView, toDoListContainerId);
 
         return [titleViewController, toDoListViewController];
     }
