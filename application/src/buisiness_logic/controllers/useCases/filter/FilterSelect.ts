@@ -2,7 +2,7 @@ import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
 import { IApplicationState, IFilterState } from "../../../../model/types";
 
 interface ISelectArgsDTO {
-    selected?: number;
+    id?: any;
 }
 
 export class FilterSelect extends UseCaseBlueprint<IApplicationState, ISelectArgsDTO> {
@@ -11,7 +11,7 @@ export class FilterSelect extends UseCaseBlueprint<IApplicationState, ISelectArg
 
     buisinessLogic(payload) {
         const filters: IFilterState = {...this.state.filters};
-        filters.selected = payload.selected;
+        filters.selected = payload.id;
         this.state.filters = filters;
     }
 }
