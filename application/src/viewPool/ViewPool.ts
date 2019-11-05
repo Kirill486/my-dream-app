@@ -2,9 +2,10 @@ import { ViewPoolBlueprint, TApplicationView } from "./ancestor/ViewPoolBlueprin
 import { IApplicationState } from "../model/types";
 import { TitleViewController } from "../viewControllers/TitleViewController";
 import { TitleView } from "../view/Title/Title";
-import { ITitleViewModel } from "../view/Title/types";
 import { TodoListViewController } from "../viewControllers/ToDoListViewController";
-import { ToDoListView, ITodoListVM } from "../view/ToDoList/ToDoList";
+import { ToDoDetailsViewController } from "../viewControllers/ToDoDetailsViewController";
+import { ToDoListView } from "../view/ToDoList/ToDoList";
+import { ToDoDetails } from "../view/ToDoDetails/TodoDetails";
 
 export class ViewPool extends ViewPoolBlueprint<IApplicationState> {
     
@@ -19,6 +20,11 @@ export class ViewPool extends ViewPoolBlueprint<IApplicationState> {
         
         const toDoListViewController = new TodoListViewController(toDOoListView, toDoListContainerId);
 
-        return [titleViewController, toDoListViewController];
+        const toDoDetailsView = ToDoDetails;
+        const toDoDetailsContainerId = 'app-todo-details__container';
+
+        const toDoDetailsViewController = new ToDoDetailsViewController(toDoDetailsView, toDoDetailsContainerId);
+
+        return [titleViewController, toDoListViewController, toDoDetailsViewController];
     }
 }
