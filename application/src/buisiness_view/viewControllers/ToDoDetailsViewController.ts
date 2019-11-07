@@ -1,7 +1,7 @@
 import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
-import { IApplicationState, IToDo } from "../model/types";
-import { ITodoDetailsVM, ITodoDetailsDataVM, ITodoDetailsActionVM, ToDoDetails } from "../view/ToDoDetails/TodoDetails";
-import { ManageController } from "../buisiness_logic/controllers/ManageController";
+import { IApplicationState, IToDo } from "../../model/types";
+import { ITodoDetailsVM, ITodoDetailsDataVM, ITodoDetailsActionVM, ToDoDetails } from "../../view/ToDoDetails/TodoDetails";
+import { ManageController } from "../../buisiness_logic/controllers/ManageController";
 
 export class ToDoDetailsViewController extends ViewControllerBlueprint<IApplicationState, ITodoDetailsVM> {
     

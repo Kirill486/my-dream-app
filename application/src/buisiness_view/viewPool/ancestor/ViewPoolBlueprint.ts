@@ -1,5 +1,5 @@
 import { ViewControllerBlueprint } from "../../viewControllers/ancestor/ViewControllerBlueprint";
-import { ModelBlueprint } from "../../model/ancestor/ModelBlueprint";
+import { ModelBlueprint } from "../../../model/ancestor/ModelBlueprint";
 
 export type TApplicationView<ApplicationState> = ViewControllerBlueprint<ApplicationState, any>;
 

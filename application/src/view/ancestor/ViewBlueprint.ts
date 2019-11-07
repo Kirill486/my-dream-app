@@ -1,4 +1,4 @@
-import { ViewPoolBlueprint } from "../../viewPool/ancestor/ViewPoolBlueprint";
+import { ViewPoolBlueprint } from "../../buisiness_view/viewPool/ancestor/ViewPoolBlueprint";
 
 export abstract class ViewBlueprint<ViewModel> {
 

@@ -52,8 +52,8 @@ It is the only place we have different concerns in one place.
 
 Our buisiness logic consists of 
 
-1. *Use Cases* and *Controllers* - the logic part.
-2. *View Pool* and *ViewControllers* - the map to view-model part.
+1. **Use Cases** and **Controllers** - the logic part.
+2. **View Pool** and **ViewControllers** - the map to view-model part.
 
 So we have two places where different concerns can meet.
 
@@ -62,13 +62,14 @@ In fact there is no difference what framework or library you use, your buisiness
 ## Version history
 
 v 1.0.0 - we have functioning ToDoApplication
+v 1.1.0 - styling
 
 ## Feature Pool
 
-* style the application
+* style the application - **V**
 * store data between sessions
 * request confirmation when leave the toDo details with unsaved data
-* do not render toDoDetails when no toDo selected
+* do not render toDoDetails when no toDo selected - **V**
 * click outside unselects toDo
 
 ## Extention with 3rd party libraries.

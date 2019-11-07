@@ -2,8 +2,9 @@ import { ViewBlueprint } from "../ancestor/ViewBlueprint";
 import { IToDo } from "../../model/types";
 
 export interface ITodoListDataVM {
-    todos: IToDo[],
-    isDoneShown: boolean,
+    todos: IToDo[];
+    isDoneShown: boolean;
+    selectedToDoId: any;
 }
 
 export interface ITodoListActionVM {
@@ -18,35 +19,39 @@ ITodoListDataVM,
 ITodoListActionVM
 { }
 
-const mapToDosToEntries = (
-        todos: IToDo[], 
-        switchDoneToDo, 
-        childrenTemplateId,
-        selectToDo
-    ) => {
-    return todos.map((item, index) => {
-        const view = ViewBlueprint.getTemplateById(childrenTemplateId);
-        const title = view.querySelector('.item__title');
-        title.textContent = item.title;
-
-        const checkBox = view.querySelector('.item__done') as HTMLInputElement;
-        checkBox.checked = item.done;
-        checkBox.addEventListener('change', () => switchDoneToDo(item.id));
-        
-        const selectArea = view.querySelector('.item__select-area');
-        selectArea.addEventListener('click', () => selectToDo(item.id));
-        
-        return view;
-    });
-}
-
 export class ToDoListView extends ViewBlueprint<ITodoListVM> {
     templateId = 'template__todo-list';
 
     childrenTemplateId = 'template__todo';
 
+    private selectedItemClassName = 'item__container--selected';
+
+    private mapToDosToEntries () {
+    const {todos, switchDoneToDo, selectedToDoId, selectToDo} = this.viewModel;
+    return todos.map((item, index) => {
+            const view = ViewBlueprint.getTemplateById(this.childrenTemplateId);
+
+            const title = view.querySelector('.item__title');
+            title.textContent = item.title;
+
+            const checkBox = view.querySelector('.item__done') as HTMLInputElement;
+            checkBox.checked = item.done;            
+            checkBox.addEventListener('change', () => switchDoneToDo(item.id));
+
+            const selectArea = view.querySelector('.item__select-area');
+            selectArea.addEventListener('click', () => selectToDo(item.id));
+
+            const isSelected = selectedToDoId && selectedToDoId === item.id;
+            if (isSelected) {
+                view.classList.add(this.selectedItemClassName);
+            }
+            return view;
+        }
+    );
+}
+    
     mapViewModel() {
-        const {todos, isDoneShown, switchDoneToDo, addToDo, toggleShowDone, selectToDo} = this.viewModel;
+        const {isDoneShown, addToDo, toggleShowDone} = this.viewModel;
 
         const addTodoButton = this.getInstance().querySelector('.todo-list__add-todo');
         addTodoButton.addEventListener('click', () => addToDo());
@@ -57,7 +62,7 @@ export class ToDoListView extends ViewBlueprint<ITodoListVM> {
 
         const todosContainer = this.getInstance().querySelector('.todo-list__items-container');
 
-        const todoEntries = mapToDosToEntries(todos, switchDoneToDo, this.childrenTemplateId, selectToDo);
+        const todoEntries = this.mapToDosToEntries();
 
         todoEntries.forEach((item) => {
             todosContainer.appendChild(item);

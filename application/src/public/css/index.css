@@ -1,0 +1,21 @@
+@import './root.css';
+@import './components/title.css';
+@import './components/list.css';
+@import './components/item.css';
+@import './components/details.css';
+
+body {
+    background-color: var(--main__background-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    
+    align-content: center;
+
+    width: 80%;
+    height: 100%;
+
+    margin: 0 auto;
+}
