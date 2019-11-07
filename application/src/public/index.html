@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
     <title>#ToDoManage</title>
 </head>
 <body>
 
     <template id="template__title">
         <div class="title__container">
+            <div class="title__upscore"></div>
             <h1 class="title__title"></h1>
         </div>
     </template>
@@ -26,7 +28,9 @@
         <div class="todo-list__container">
             <div class="todo-list__title-row">
                 <button class="todo-list__add-todo">+</button>
-                <input class="todo-list__show-done" type="checkbox">
+                <div class="todo-list__show-done-container">
+                    <input class="todo-list__show-done" type="checkbox">Show done</input>
+                </div>
             </div>
             <div class="todo-list__items-container"></div>
         </div>
@@ -34,33 +38,31 @@
 
     <template id="template__todo-details">
         <div class="todo-details__container">
-            <div class="todo-details__header">
+            <div class="todo-details__section todo-details__header">
                 <input class="todo-details-title-input" type="text"></input>
-                <input class="todo-details-done" type="checkbox">
+                <div class="todo-details-done-container">
+                    <input class="todo-details-done" type="checkbox">Done</input>
+                </div> 
+                <button class="todo-detais__button todo-details__save">Save</button>
             </div>
-            <div class="todo-details__save-container">
-                <button class="todo-details__save">Save</button>
-            </div>
+            
             <div class="todo-details__editor">
-                <textarea 
-                    class="todo-details-content"    
-                    cols="30" 
-                    rows="30">
+                <textarea class="todo-details-content">
                 </textarea>                
             </div>
-            <div class="todo-details__statistic">
-                <div class="todo-datails__created-container">
+            <div class="todo-details__section todo-details__statistic">
+                <div class="todo-datails__statistic-container todo-datails__created-container">
                     <span class="todo-datails__created"></span>
                 </div>
-                <div class="todo-datails__saved-container">
+                <div class="todo-datails__statistic-container todo-datails__saved-container">
                     <span class="todo-datails__saved"></span>
                 </div>
-                <div class="todo-datails__done-container">
+                <div class="todo-datails__statistic-container todo-datails__done-container">
                     <span class="todo-datails__done"></span>
                 </div>
             </div>
-            <div class="todo-details-danger">
-                <button class="todo-detais__delete">Delete</button>
+            <div class="todo-details__section todo-details-danger">
+                <button class="todo-detais__button todo-detais__delete">Delete</button>
             </div>
         </div>
     </template>

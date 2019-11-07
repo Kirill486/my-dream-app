@@ -1,0 +1,18 @@
+.item__container {
+    display: flex;
+    width: 100%;
+
+    margin: var(--milli__interval) 0;
+
+    justify-content: space-between;
+}
+
+.item__container--selected {
+    background-color: var(--app-primary__background-color);
+    font-weight: bold;
+}
+
+.item__title {
+    width: 80%;
+    overflow: hidden;
+}
