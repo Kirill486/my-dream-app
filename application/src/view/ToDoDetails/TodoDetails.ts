@@ -25,28 +25,85 @@ export class ToDoDetails extends ViewBlueprint<ITodoDetailsVM> {
         
         if (selectedToDo) {
             const {title, description, done, createdTime, doneTime, savedTime} = selectedToDo;
-            const titleElement = this.getInstance().querySelector('.todo-details-title');
+            const titleElement = this.getTitleHeader();
             titleElement.textContent = title;
 
-            const descriptionElement = this.getInstance().querySelector('.todo-details-content');
-            descriptionElement.textContent = description;
+            const titleInput = this.getTitleInput();
+            titleInput.value = title;
 
-            const doneToggler = this.getInstance().querySelector('.todo-details-done') as HTMLInputElement;
+            const descriptionElement = this.getDescriptionElement();
+            descriptionElement.value = description;
+
+            const doneToggler = this.getDoneToggler();
             doneToggler.checked = done;
             doneToggler.addEventListener('change', toggleDone);
 
-            const saveButton = this.getInstance().querySelector('.todo-details__save');
+            const saveButton = this.getSaveButton();
             saveButton.addEventListener('click', saveToDo);
 
-            const removeButton = this.getInstance().querySelector('.todo-detais__delete');
+            const removeButton = this.getRemoveButton();
             removeButton.addEventListener('click', removeToDo);
 
-            const createdSpan = this.getInstance().querySelector('.todo-datails__created');
-            createdSpan.textContent = new Date(createdTime).toLocaleString();
-            const savedSpan = this.getInstance().querySelector('.todo-datails__saved');
-            savedSpan.textContent = new Date(savedTime).toLocaleString();
-            const doneSpan = this.getInstance().querySelector('.todo-datails__done');
-            doneSpan.textContent = new Date(doneTime).toLocaleString();
+            if (createdTime) {
+                const createdSpan = this.getCreatedSpan();
+                createdSpan.textContent = new Date(createdTime).toLocaleString();
+            }
+
+            if (savedTime) {
+                const savedSpan = this.getSavedSpan();
+                savedSpan.textContent = new Date(savedTime).toLocaleString();
+            }
+
+            if (doneTime) {
+                const doneSpan = this.getDoneSpan();
+                doneSpan.textContent = new Date(doneTime).toLocaleString();
+            }
         }
+    }
+
+    public getTitle(): string {
+        return this.getTitleInput().value;
+    }
+
+    public getDescription(): string {
+        return this.getDescriptionElement().value;
+    }
+
+    public getDone(): boolean {
+        return this.getDoneToggler().checked;
+    }
+
+    private getTitleHeader(): HTMLHeadElement {
+        return this.getInstance().querySelector('.todo-details-title');
+    }
+
+    private getTitleInput(): HTMLInputElement {
+        return this.getInstance().querySelector('.todo-details-title-input');
+    }
+
+    private getDescriptionElement(): HTMLTextAreaElement {
+        return this.getInstance().querySelector('.todo-details-content');
+    }
+
+    private getDoneToggler(): HTMLInputElement {
+        return this.getInstance().querySelector('.todo-details-done');
+    }
+
+    private getSaveButton(): HTMLButtonElement {
+        return this.getInstance().querySelector('.todo-details__save');
+    }
+
+    private getRemoveButton(): HTMLButtonElement {
+        return this.getInstance().querySelector('.todo-detais__delete');
+    }
+
+    private getCreatedSpan(): HTMLElement {
+        return this.getInstance().querySelector('.todo-datails__created');
+    }
+    private getSavedSpan(): HTMLElement {
+        return this.getInstance().querySelector('.todo-datails__saved');
+    }
+    private getDoneSpan(): HTMLElement {
+        return this.getInstance().querySelector('.todo-datails__done');
     }
 }
