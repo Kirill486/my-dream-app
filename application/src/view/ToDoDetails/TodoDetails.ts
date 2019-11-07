@@ -25,9 +25,7 @@ export class ToDoDetails extends ViewBlueprint<ITodoDetailsVM> {
         
         if (selectedToDo) {
             const {title, description, done, createdTime, doneTime, savedTime} = selectedToDo;
-            const titleElement = this.getTitleHeader();
-            titleElement.textContent = title;
-
+            
             const titleInput = this.getTitleInput();
             titleInput.value = title;
 
@@ -71,10 +69,6 @@ export class ToDoDetails extends ViewBlueprint<ITodoDetailsVM> {
 
     public getDone(): boolean {
         return this.getDoneToggler().checked;
-    }
-
-    private getTitleHeader(): HTMLHeadElement {
-        return this.getInstance().querySelector('.todo-details-title');
     }
 
     private getTitleInput(): HTMLInputElement {
