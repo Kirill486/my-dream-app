@@ -62,6 +62,7 @@ In fact there is no difference what framework or library you use, your buisiness
 ## Version history
 
 v 1.0.0 - we have functioning ToDoApplication
+v 1.1.0 - styling
 
 ## Feature Pool
 
