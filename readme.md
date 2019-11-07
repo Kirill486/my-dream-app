@@ -58,3 +58,30 @@ Our buisiness logic consists of
 So we have two places where different concerns can meet.
 
 In fact there is no difference what framework or library you use, your buisiness logic's API stay the same.
+
+## Version history
+
+v 1.0.0 - we have functioning ToDoApplication
+
+## Feature Pool
+
+* style the application
+* store data between sessions
+* request confirmation when leave the toDo details with unsaved data
+* do not render toDoDetails when no toDo selected
+* click outside unselects toDo
+
+## Extention with 3rd party libraries.
+
+So, the idea was that there's no difference what libraries you use, the buisiness logic stay the same.
+
+### React ecosystem
+
+* React (replaces View)
+* redux (replaces Model)
+* react-redux (replaces viewControllers and ViewPool)
+* redux-saga (replaces UseCases)
+
+### Angular 2+ ecosystem
+
+* rewrite the application using the Angular 8+
