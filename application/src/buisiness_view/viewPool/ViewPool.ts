@@ -1,11 +1,11 @@
 import { ViewPoolBlueprint, TApplicationView } from "./ancestor/ViewPoolBlueprint";
-import { IApplicationState } from "../model/types";
+import { IApplicationState } from "../../model/types";
 import { TitleViewController } from "../viewControllers/TitleViewController";
-import { TitleView } from "../view/Title/Title";
+import { TitleView } from "../../view/Title/Title";
 import { TodoListViewController } from "../viewControllers/ToDoListViewController";
 import { ToDoDetailsViewController } from "../viewControllers/ToDoDetailsViewController";
-import { ToDoListView } from "../view/ToDoList/ToDoList";
-import { ToDoDetails } from "../view/ToDoDetails/TodoDetails";
+import { ToDoListView } from "../../view/ToDoList/ToDoList";
+import { ToDoDetails } from "../../view/ToDoDetails/TodoDetails";
 
 export class ViewPool extends ViewPoolBlueprint<IApplicationState> {
     

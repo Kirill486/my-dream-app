@@ -1,4 +1,4 @@
-import { ViewBlueprint } from '../../view/ancestor/ViewBlueprint';
+import { ViewBlueprint } from '../../../view/ancestor/ViewBlueprint';
 
 // this controller classes maps application model to viewModel
 

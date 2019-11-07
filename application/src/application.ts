@@ -1,4 +1,4 @@
-import { ViewPool } from "./viewPool/ViewPool";
+import { ViewPool } from "./buisiness_view/viewPool/ViewPool";
 import { appStore, ApplicationModel } from "./model/Model";
 import { BuisinessLogicBlueprint } from "./buisiness_logic/ancestor/BuisinessLogicBlueprint";
 
