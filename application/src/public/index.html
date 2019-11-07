@@ -36,20 +36,29 @@
         <div class="todo-details__container">
             <div class="todo-details__header">
                 <h3 class="todo-details-title"></h3>
+                <input class="todo-details-title-input" type="text"></input>
                 <input class="todo-details-done" type="checkbox">
+            </div>
+            <div class="todo-details__save-container">
+                <button class="todo-details__save">Save</button>
             </div>
             <div class="todo-details__editor">
                 <textarea 
                     class="todo-details-content"    
                     cols="30" 
-                    rows="60">
-                </textarea>
-                <button class="todo-details__save">Save</button>
+                    rows="30">
+                </textarea>                
             </div>
             <div class="todo-details__statistic">
-                <span class="todo-datails__created"></span>
-                <span class="todo-datails__saved"></span>
-                <span class="todo-datails__done"></span>
+                <div class="todo-datails__created-container">
+                    <span class="todo-datails__created"></span>
+                </div>
+                <div class="todo-datails__saved-container">
+                    <span class="todo-datails__saved"></span>
+                </div>
+                <div class="todo-datails__done-container">
+                    <span class="todo-datails__done"></span>
+                </div>
             </div>
             <div class="todo-details-danger">
                 <button class="todo-detais__delete">Delete</button>
