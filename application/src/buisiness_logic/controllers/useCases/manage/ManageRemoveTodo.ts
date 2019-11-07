@@ -1,5 +1,5 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
-import { IApplicationState } from "../../../../model/types";
+import { IApplicationState } from "../../../../domain_types/types";
 
 interface argsDTO {
     id: any;

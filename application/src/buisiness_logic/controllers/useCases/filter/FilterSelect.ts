@@ -1,5 +1,5 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
-import { IApplicationState, IFilterState } from "../../../../model/types";
+import { IApplicationState, IFilterState } from "../../../../domain_types/types";
 
 interface ISelectArgsDTO {
     id?: any;

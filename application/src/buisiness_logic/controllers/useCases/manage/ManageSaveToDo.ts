@@ -1,5 +1,5 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
-import { IApplicationState, IToDo } from "../../../../model/types";
+import { IApplicationState, IToDo } from "../../../../domain_types/types";
 
 interface argsDTO {
     todo: IToDo;

@@ -1,5 +1,5 @@
 import { ViewPoolBlueprint, TApplicationView } from "./ancestor/ViewPoolBlueprint";
-import { IApplicationState } from "../../model/types";
+import { IApplicationState } from "../../domain_types/types";
 import { TitleViewController } from "../viewControllers/TitleViewController";
 import { TitleView } from "../../view/Title/Title";
 import { TodoListViewController } from "../viewControllers/ToDoListViewController";
