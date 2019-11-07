@@ -63,6 +63,8 @@ export class ToDoDetails extends ViewBlueprint<ITodoDetailsVM> {
                 const doneDateString = this.getDateString(doneTime);
                 doneSpan.textContent = `Done - ${doneDateString}`;
             }
+        } else {
+            ViewBlueprint.emptyContainer(this.getContainer());
         }
     }
 
