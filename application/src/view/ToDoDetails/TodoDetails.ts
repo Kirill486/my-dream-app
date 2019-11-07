@@ -19,6 +19,10 @@ ITodoDetailsActionVM
 export class ToDoDetails extends ViewBlueprint<ITodoDetailsVM> {
     
     templateId = 'template__todo-details';
+
+    getDateString(time: number): string {
+        return new Date(time).toLocaleString();
+    }
     
     mapViewModel() {
         const {selectedToDo, toggleDone, saveToDo, removeToDo} = this.viewModel;
@@ -44,17 +48,20 @@ export class ToDoDetails extends ViewBlueprint<ITodoDetailsVM> {
 
             if (createdTime) {
                 const createdSpan = this.getCreatedSpan();
-                createdSpan.textContent = new Date(createdTime).toLocaleString();
+                const createdDateString = this.getDateString(createdTime);
+                createdSpan.textContent = `Created - ${createdDateString}`;
             }
 
             if (savedTime) {
                 const savedSpan = this.getSavedSpan();
-                savedSpan.textContent = new Date(savedTime).toLocaleString();
+                const savedDateString = this.getDateString(savedTime);
+                savedSpan.textContent = `Saved - ${savedDateString}`;
             }
 
             if (doneTime) {
                 const doneSpan = this.getDoneSpan();
-                doneSpan.textContent = new Date(doneTime).toLocaleString();
+                const doneDateString = this.getDateString(doneTime);
+                doneSpan.textContent = `Done - ${doneDateString}`;
             }
         }
     }
