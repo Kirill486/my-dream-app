@@ -1,7 +1,6 @@
 import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
-import { IApplicationState } from "../model/types";
-import { ITodoDetailsVM, ITodoDetailsDataVM, ITodoDetailsActionVM } from "../view/ToDoDetails/TodoDetails";
-import { TodoListViewController } from "./ToDoListViewController";
+import { IApplicationState, IToDo } from "../model/types";
+import { ITodoDetailsVM, ITodoDetailsDataVM, ITodoDetailsActionVM, ToDoDetails } from "../view/ToDoDetails/TodoDetails";
 import { ManageController } from "../buisiness_logic/controllers/ManageController";
 
 export class ToDoDetailsViewController extends ViewControllerBlueprint<IApplicationState, ITodoDetailsVM> {
@@ -25,9 +24,39 @@ export class ToDoDetailsViewController extends ViewControllerBlueprint<IApplicat
         }
 
         const actionVM: ITodoDetailsActionVM = {
-            saveToDo: () => console.log('save your toDo'),
-            toggleDone: () => console.log('toggleDone'),
-            removeToDo: () => console.log('removeToDo'),
+            saveToDo: () => {
+                const view = this.view as ToDoDetails;
+
+                const timeNow = Date.now()
+
+                const savedTime = timeNow.valueOf();
+
+                const done = view.getDone();
+                const hasMadeDone = selectedToDo.done !== done;
+                const doneTime = hasMadeDone ? timeNow : selectedToDo.doneTime; 
+
+                const title = view.getTitle();
+                const description = view.getDescription();
+                
+                const todo: IToDo = {
+                    ...selectedToDo,
+                    title,
+                    description,
+                    done,
+                    doneTime,
+                    savedTime
+
+                }
+        
+                ManageController.save.use({ todo });
+            },
+            toggleDone: () => {
+                // this toggles done
+            },
+            removeToDo: () => {
+                const id = selectedToDo.id;
+                ManageController.remove.use({id});
+            },
         }
 
         const viewModel = {
