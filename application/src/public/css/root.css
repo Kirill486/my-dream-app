@@ -1,0 +1,30 @@
+:root {
+    --main__background-color :#E1E2E1;
+    --light__background-color :#F5F5F6;
+
+    --app-primary__background-color: #43a047;
+    --app-dark__background-color: #00701a;
+    --app-light__background-color: #76d275;
+
+    --app-danger__color: crimson;
+
+    --main-text__color: rgba(0, 0, 0, 1);
+    --secondary-text__color: rgba(0, 0, 0, 0.7);
+    
+    --selected-text__color: #F5F5F6;
+    
+    --small__border-radius: 2px;
+    --regular__border-radius: 4px;
+
+    --milli__interval: 4px;
+    --small__interval: 8px;
+    --medium__intarval: 16px;
+    --large__interval: 32px;
+    --xlarge__interval: 48px;
+
+    --details-editor__interval: 200px;
+
+    --large__text-size: 36px;
+    --medium__text-size: 24px;
+    --small__text-size: 18px;
+}

@@ -1,0 +1,71 @@
+.todo-details__container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: var(--light__background-color);
+    border-radius: var(--regular__border-radius);
+}
+
+.todo-details__section {
+    display: flex;
+    padding: var(--small__interval);
+    box-sizing: border-box;
+    align-items: center;
+    width: 100%;
+}
+
+.todo-details__header {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.todo-details-title-input {
+   font-size: var(--medium__text-size);
+   border-radius: var(--regular__border-radius);
+}
+
+.todo-details__editor {
+    width: 100%;
+    height: var(--details-editor__interval);
+}
+
+.todo-details-content {
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    resize: none;
+
+    font-size: var(--small__text-size);
+}
+
+.todo-detais__button {
+    border-radius: var(--regular__border-radius);
+    font-size: var(--medium__text-size);
+}
+
+.todo-details__save {
+    background-color: var(--app-primary__background-color);
+}
+
+.todo-detais__delete {
+    background-color: var(--app-danger__color);
+}
+
+.todo-datails__statistic-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.todo-details__statistic {
+    flex-direction: column;
+}
+
+.todo-details-danger {
+    flex-direction: column;
+}
