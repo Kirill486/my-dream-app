@@ -8,6 +8,32 @@ The idea was that we can make the project of the application and then write it u
 
 So, I decided to write the front-end application from the scratch starting with the project.
 
+## Installation and Run
+
+Firstly, you need NodeJs to be installed on your computer.
+
+try type `node --version` in your console.
+
+[Get NodeJS](https://nodejs.org/en/)
+
+To run project you need TypeScript installed globally
+
+```
+npm install -g typescript@next
+```
+
+To build project run
+
+```
+./application/build.sh
+```
+
+Open application with your browser
+
+```
+./application/dist/index.html
+```
+
 ## Separation of concerns
 
 Lets assume our app is a set of conserns. (Like in separation of concerns principle).
