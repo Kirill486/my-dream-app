@@ -22,6 +22,7 @@ export class TodoListViewController extends ViewControllerBlueprint<IApplication
         const todoListDataVM: ITodoListDataVM = {
             todos,
             isDoneShown: state.filters.showDone,
+            selectedToDoId: state.filters.selected,
         };
         const todoListActionVM: ITodoListActionVM = {
             toggleShowDone: () => FilterController.toggleShowDone.use({}),
