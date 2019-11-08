@@ -28,3 +28,9 @@ export interface IApplicationData {
     todos: IToDo[];
     logQuenue: any[];
 }
+
+// We'll use this to avoid some unwanted read operations
+export interface IApplicationDataPartialDTO {
+    todos?: IToDo[];
+    logQuenue?: any[];
+}
