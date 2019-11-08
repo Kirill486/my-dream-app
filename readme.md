@@ -54,6 +54,8 @@ Our buisiness logic consists of
 
 1. **Use Cases** and **Controllers** - the logic part.
 2. **View Pool** and **ViewControllers** - the map to view-model part.
+3. **Buisiness repository** - the adapter from state to repository.
+4. **Buisiness logger** - the adapter from logging to repository
 
 So we have two places where different concerns can meet.
 
@@ -69,7 +71,7 @@ v 1.2.0 - between sessions data storage
 
 * style the application - **V**
 * store data between sessions - **V**
-* request confirmation when leave the toDo details with unsaved data
+* request confirmation when leave the toDoDetails with unsaved data
 * do not render toDoDetails when no toDo selected - **V**
 * click outside unselects toDo
 * move save data logic to a exit application sequence
