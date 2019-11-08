@@ -1,5 +1,5 @@
 import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
-import { IApplicationState } from "../../model/types";
+import { IApplicationState } from "../../domain_types/types";
 import { ITitleViewModel } from "../../view/Title/types";
 
 const applicationTitle = 'ToDoManage';

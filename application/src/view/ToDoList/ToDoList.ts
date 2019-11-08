@@ -1,5 +1,5 @@
 import { ViewBlueprint } from "../ancestor/ViewBlueprint";
-import { IToDo } from "../../model/types";
+import { IToDo } from "../../domain_types/types";
 
 export interface ITodoListDataVM {
     todos: IToDo[];
@@ -33,6 +33,7 @@ export class ToDoListView extends ViewBlueprint<ITodoListVM> {
 
             const title = view.querySelector('.item__title');
             title.textContent = item.title;
+            title.addEventListener('click', () => selectToDo(item.id));
 
             const checkBox = view.querySelector('.item__done') as HTMLInputElement;
             checkBox.checked = item.done;            

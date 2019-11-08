@@ -1,5 +1,5 @@
 import { ModelBlueprint } from "./ancestor/ModelBlueprint";
-import { IApplicationState } from "./types";
+import { IApplicationState } from "../domain_types/types";
 
 const initialState: IApplicationState = {
     filters: {

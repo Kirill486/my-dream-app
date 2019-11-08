@@ -1,5 +1,7 @@
 import { ModelBlueprint } from "../../../../model/ancestor/ModelBlueprint";
 import { BuisinessLogicBlueprint } from "../../../ancestor/BuisinessLogicBlueprint";
+import { Logger } from "../../../../buisiness_logger/Logger";
+import { StorageBlueprint } from "../../../../buisiness_repository/ancestor/StorageBlueprint";
 
 // So, after we know whats happening usually in our application use cases we can
 
@@ -7,15 +9,20 @@ export abstract class UseCaseBlueprint<ApplicationState, argsDTO> {
     abstract useCaseTitle: string;
     model: ModelBlueprint<ApplicationState>;
     state: ApplicationState;
+    
+    logger: Logger;
+
+    // we do not care that much what exact model is used to store data
+    storage: StorageBlueprint<ApplicationState, any>;  
 
     constructor(
-        model: ModelBlueprint<ApplicationState>,         
+        model: ModelBlueprint<ApplicationState>,
+        storage: StorageBlueprint<ApplicationState, any>,
+        loggingService: Logger,        
     ) {
         this.model = model;
-        // Here we will add 
-        // StorageService
-        // LoggingService
-        // its jut not the priority now.
+        this.logger = loggingService;
+        this.storage =storage;
     }
 
     abstract buisinessLogic(payloadDTO: argsDTO);
@@ -24,8 +31,8 @@ export abstract class UseCaseBlueprint<ApplicationState, argsDTO> {
         this.state = this.model.getState();
         this.buisinessLogic(payloadDTO);
         this.syncModel();
-        this.syncModelWithStorage();
-        this.logUseCase();
+        this.logUseCase(payloadDTO);
+        this.syncModelWithStorage(this.state);
         BuisinessLogicBlueprint.fireChangedEvent();
     }
 
@@ -33,11 +40,19 @@ export abstract class UseCaseBlueprint<ApplicationState, argsDTO> {
         this.model.setState(this.state);
     }
 
-    private logUseCase() {
-        // Here we'll add our model - storage synkhronization code
+    private logUseCase(dto: argsDTO) {
+        this.logger.LogOne(this.getInfo(dto));        
     } 
 
-    private syncModelWithStorage() {
-        // Here we'll add our model - storage synkhronization code
-    }    
+    private syncModelWithStorage(state: ApplicationState) {
+        this.storage.store(state);
+    }
+
+    private getInfo(dto: argsDTO) {
+        return {
+            case: this.useCaseTitle,
+            time: Date.now(),
+            actionDTO: dto,
+        }
+    }
 }
