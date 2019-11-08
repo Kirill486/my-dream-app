@@ -1,29 +1,20 @@
 import { RepositoryBlueprint } from "./ancestor/RepositoryBlueprint";
-import { IToDo } from "../domain_types/types";
+import { IToDoData } from "../domain_types/types";
 import { applicationRepository } from "./ApplicationRepository";
-
-interface IToDoData {
-    todos: IToDo[];
-}
 
 export class ToDoRepository extends RepositoryBlueprint<IToDoData> {
     async readStorage() {
-        const storedData = await applicationRepository.readStorage();
+        const {todos} = await applicationRepository.readStorage();
         const result: IToDoData = {
-            todos: storedData.todos,
+            todos,
         }
-        return Promise.resolve(result);
+        return result;
     }
 
     async writeStorage(data: IToDoData) {
-        const storedData = await applicationRepository.readStorage();
-        const newStoredData = {
-            ...storedData,
-            todos: data.todos,
-        }
-        const result = await applicationRepository.writeStorage(newStoredData);
-        return Promise.resolve(result);
+        const result = await applicationRepository.writeStorage(data);
+        return result;
     }
 }
 
-export const dataStorage = new ToDoRepository();
+export const dataRepository = new ToDoRepository();
