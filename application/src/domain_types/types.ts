@@ -6,7 +6,8 @@ export interface IApplicationState {
 
 export interface IFilterState {
     selected?: any;
-    showDone: boolean; 
+    showDone: boolean;
+    hasUnsavedChanges: boolean;
 }
 
 export interface IToDo {

@@ -5,6 +5,7 @@ const initialState: IApplicationState = {
     filters: {
         selected: null,
         showDone: true,
+        hasUnsavedChanges: false,
     },
     toDoList: [],
     misc: {
