@@ -1,5 +1,6 @@
 import { ModelBlueprint } from "./ancestor/ModelBlueprint";
 import { IApplicationState } from "../domain_types/types";
+import { LoggingService } from "../logging_service/LoggingService";
 
 const initialState: IApplicationState = {
     filters: {
@@ -34,7 +35,7 @@ export class ApplicationModel extends ModelBlueprint<IApplicationState> {
 
     public setState(state) {
         this.state = state;
-        console.log(state);
+        LoggingService.logToConsoleTable(state);
     }
 }
 
