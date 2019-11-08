@@ -74,6 +74,7 @@ v 1.2.0 - between sessions data storage
 * do not render toDoDetails when no toDo selected - **V**
 * click outside unselects toDo
 * move save data logic to a exit application sequence
+* for use cases add a flag each should be synced with store
 
 ## Extention with 3rd party libraries.
 
