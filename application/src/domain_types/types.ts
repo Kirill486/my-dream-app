@@ -23,3 +23,8 @@ export interface IMiscState {
     isModelSyncronized: boolean;
     logQuenue: any[];
 }
+
+export interface IApplicationData {
+    todos: IToDo[];
+    logQuenue: any[];
+}
