@@ -10,7 +10,12 @@ export abstract class StorageBlueprint<ApplicationState, DataModel> {
 
     async store(state: ApplicationState) {
         const data = this.mapToModel(state);
-        const result = this.repository.writeStorage(data);
+        const result = await this.repository.writeStorage(data);
         return result;
+    }
+
+    async get() {
+        const data = await this.repository.readStorage();
+        return data;
     }
 }
