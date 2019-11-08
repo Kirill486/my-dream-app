@@ -47,7 +47,7 @@ So, lets name them:
 Our conserns made of API and implementation.
 So, we define ancestors to make an API manifest.
 
-We have one *major* consern. It is *Buisiness Logic*.
+We have one **major** consern. It is **Buisiness Logic**.
 It is the only place we have different concerns in one place.
 
 Our buisiness logic consists of 
@@ -55,11 +55,10 @@ Our buisiness logic consists of
 1. **Use Cases** and **Controllers** - the logic part.
 2. **View Pool** and **ViewControllers** - the map to view-model part.
 3. **Buisiness repository** - the adapter from state to repository.
-4. **Buisiness logger** - the adapter from logging to repository
+4. **Buisiness logger** - the adapter from logging to repository.
 
-So we have two places where different concerns can meet.
-
-In fact there is no difference what framework or library you use, your buisiness logic's API stay the same.
+So, looks like for each peice of functionality we have a **consern** itself (API and implementation like view, model, repository) 
+and a **buisiness mapping** from our application need to conserns API.
 
 ## Version history
 

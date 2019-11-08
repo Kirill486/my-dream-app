@@ -1,6 +1,6 @@
-import { RepositoryBlueprint } from "../permanent_storege_service/ancestor/RepositoryBlueprint";
+import { RepositoryBlueprint } from "../repository/ancestor/RepositoryBlueprint";
 import { LogData } from "../domain_types/types";
-import { loggingRepository } from "../permanent_storege_service/LogRepository";
+import { loggingRepository } from "../repository/LogRepository";
 
 export class Logger {
     private loggingRepository: RepositoryBlueprint<LogData>;

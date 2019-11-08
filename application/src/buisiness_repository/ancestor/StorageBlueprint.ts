@@ -1,4 +1,4 @@
-import { RepositoryBlueprint } from "../../permanent_storege_service/ancestor/RepositoryBlueprint";
+import { RepositoryBlueprint } from "../../repository/ancestor/RepositoryBlueprint";
 
 export abstract class StorageBlueprint<ApplicationState, DataModel> {
     abstract mapToModel(state: ApplicationState): DataModel;
