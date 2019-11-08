@@ -63,14 +63,16 @@ In fact there is no difference what framework or library you use, your buisiness
 
 v 1.0.0 - we have functioning ToDoApplication
 v 1.1.0 - styling
+v 1.2.0 - between sessions data storage
 
 ## Feature Pool
 
 * style the application - **V**
-* store data between sessions
+* store data between sessions - **V**
 * request confirmation when leave the toDo details with unsaved data
 * do not render toDoDetails when no toDo selected - **V**
 * click outside unselects toDo
+* move save data logic to a exit application sequence
 
 ## Extention with 3rd party libraries.
 
