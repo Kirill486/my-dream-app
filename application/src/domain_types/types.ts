@@ -34,3 +34,11 @@ export interface IApplicationDataPartialDTO {
     todos?: IToDo[];
     logQuenue?: any[];
 }
+
+export interface IToDoData {
+    todos: IToDo[];
+}
+
+export interface LogData {
+    logQuenue: any[],
+}
