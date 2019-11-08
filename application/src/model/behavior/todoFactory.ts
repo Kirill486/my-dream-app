@@ -1,4 +1,4 @@
-import { IToDo } from "../types";
+import { IToDo } from "../../domain_types/types";
 import { appStore } from "../Model";
 
 const defaultToDo: IToDo = {

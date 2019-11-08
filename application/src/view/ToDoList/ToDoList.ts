@@ -1,5 +1,5 @@
 import { ViewBlueprint } from "../ancestor/ViewBlueprint";
-import { IToDo } from "../../model/types";
+import { IToDo } from "../../domain_types/types";
 
 export interface ITodoListDataVM {
     todos: IToDo[];

@@ -1,4 +1,4 @@
-import { IApplicationState, IToDo, IFilterState } from '../../model/types';
+import { IApplicationState, IToDo, IFilterState } from '../../domain_types/types';
 import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
 import { ITodoListVM, ITodoListDataVM, ITodoListActionVM } from '../../view/ToDoList/ToDoList';
 import { FilterController } from '../../buisiness_logic/controllers/FilterController';

@@ -1,5 +1,5 @@
 import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
-import { IApplicationState, IToDo } from "../../model/types";
+import { IApplicationState, IToDo } from "../../domain_types/types";
 import { ITodoDetailsVM, ITodoDetailsDataVM, ITodoDetailsActionVM, ToDoDetails } from "../../view/ToDoDetails/TodoDetails";
 import { ManageController } from "../../buisiness_logic/controllers/ManageController";
 
