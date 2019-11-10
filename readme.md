@@ -67,12 +67,10 @@ v 1.1.0 - styling
 v 1.2.0 - between sessions data storage
 
 v 2.0.0
-    1. critical bug fixes 
-        * the same id bug
-        * done and saved time would change on toggle done in list
-    2. styling improvements, animation
-    3. since this version we'll be rewriting parts of the application using
-        3rd party libraries.
+
+1. Critical bug fixes 
+2. Styling improvements, animation
+3. Since this version we'll be rewriting parts of the application using 3rd party libraries 🎉.
 
 ## Feature Pool
 
