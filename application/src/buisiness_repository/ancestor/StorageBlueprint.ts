@@ -1,5 +1,7 @@
 import { RepositoryBlueprint } from "../../repository/ancestor/RepositoryBlueprint";
 
+export type ApplicationStorage<ApplicationState> = StorageBlueprint<ApplicationState, any>;
+
 export abstract class StorageBlueprint<ApplicationState, DataModel> {
     abstract mapToModel(state: ApplicationState): DataModel;
 
