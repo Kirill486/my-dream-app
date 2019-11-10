@@ -18,6 +18,10 @@
     font-size: var(--large__text-size);
 }
 
+.todo-list__add-todo:hover {
+    background-color: var(--app-light__background-color);
+}
+
 .todo-list__items-container {
     padding: var(--small__interval);
     margin-top: var(--medium__intarval);

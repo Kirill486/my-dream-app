@@ -47,17 +47,18 @@ So, lets name them:
 Our conserns made of API and implementation.
 So, we define ancestors to make an API manifest.
 
-We have one *major* consern. It is *Buisiness Logic*.
+We have one **major** consern. It is **Buisiness Logic**.
 It is the only place we have different concerns in one place.
 
 Our buisiness logic consists of 
 
 1. **Use Cases** and **Controllers** - the logic part.
 2. **View Pool** and **ViewControllers** - the map to view-model part.
+3. **Buisiness repository** - the adapter from state to repository.
+4. **Buisiness logger** - the adapter from logging to repository.
 
-So we have two places where different concerns can meet.
-
-In fact there is no difference what framework or library you use, your buisiness logic's API stay the same.
+So, looks like for each peice of functionality we have a **consern** itself (API and implementation like view, model, repository) 
+and a **buisiness mapping** from our application need to conserns API.
 
 ## Version history
 
@@ -65,11 +66,19 @@ v 1.0.0 - we have functioning ToDoApplication
 v 1.1.0 - styling
 v 1.2.0 - between sessions data storage
 
+v 2.0.0
+    1. critical bug fixes 
+        * the same id bug
+        * done and saved time would change on toggle done in list
+    2. styling improvements, animation
+    3. since this version we'll be rewriting parts of the application using
+        3rd party libraries.
+
 ## Feature Pool
 
 * style the application - **V**
 * store data between sessions - **V**
-* request confirmation when leave the toDo details with unsaved data
+* request confirmation when leave the toDoDetails with unsaved data
 * do not render toDoDetails when no toDo selected - **V**
 * click outside unselects toDo
 * move save data logic to a exit application sequence

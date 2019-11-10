@@ -11,7 +11,13 @@ export class ManageToggleDone extends UseCaseBlueprint<IApplicationState, argsDT
     buisinessLogic(payload: argsDTO) {
         this.state.toDoList = this.state.toDoList.map((item) => {
             if (item.id === payload.id) {
-                item.done = !item.done;
+                const timeNow = Date.now();
+                const doneStatus = !item.done;
+                item.done = doneStatus;
+                item.savedTime = timeNow;
+                if (doneStatus) {
+                    item.doneTime = timeNow;
+                }
             }
             return item;
         })

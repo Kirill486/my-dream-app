@@ -1,5 +1,6 @@
 import { ModelBlueprint } from "./ancestor/ModelBlueprint";
 import { IApplicationState } from "../domain_types/types";
+import { LoggingService } from "../logging_service/LoggingService";
 
 const initialState: IApplicationState = {
     filters: {
@@ -23,6 +24,17 @@ export class ApplicationModel extends ModelBlueprint<IApplicationState> {
         this.state = initialState;
     }
 
+    // I feel like we need a ModelControllerHere.
+    public findLastId(): void {
+        let lastId = nextId;
+        this.state.toDoList.forEach((item) => {
+            if (item.id > lastId) {
+                lastId = item.id;
+            }
+        });
+        nextId = lastId + 1;
+    }
+
     public getNextId(): number {
         return nextId++;
     }
@@ -33,7 +45,7 @@ export class ApplicationModel extends ModelBlueprint<IApplicationState> {
 
     public setState(state) {
         this.state = state;
-        console.log(state);
+        LoggingService.logToConsoleTable(state);
     }
 }
 
