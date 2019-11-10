@@ -46,11 +46,11 @@ const devConfig = {
     devServer: {
             contentBase: './dist'
         },
-    plugins: [
-        new WebpackShellPlugin({
-            onBuildStart: ['./remove-dist.sh', './copy-static.sh']
-        })
-    ]
+    // plugins: [
+    //     new WebpackShellPlugin({
+    //         onBuildStart: ['./remove-dist.sh', './copy-static.sh']
+    //     })
+    // ]
 }
 
 module.exports = (env) => {
