@@ -7,6 +7,7 @@
     --app-light__background-color: #76d275;
 
     --app-danger__color: crimson;
+    --app-danger__color--selected: rgb(255, 0, 0);
 
     --main-text__color: rgba(0, 0, 0, 1);
     --secondary-text__color: rgba(0, 0, 0, 0.7);
@@ -27,4 +28,8 @@
     --large__text-size: 36px;
     --medium__text-size: 24px;
     --small__text-size: 18px;
+}
+
+.background-color-animated {
+    transition: background-color ease-in-out 0.3s;
 }
