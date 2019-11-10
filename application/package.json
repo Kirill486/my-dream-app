@@ -1,0 +1,15 @@
+{
+  "name": "my-dream-app",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/Kirill_486/my-dream-app/src/master/"
+  },
+  "author": "Kirill Penkin",
+  "license": "MIT"
+}
