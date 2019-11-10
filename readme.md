@@ -87,6 +87,11 @@ So, the idea was that there's no difference what libraries you use, the buisines
 
 ### React ecosystem
 
+The `development__react` branch.
+We'll integrate parts of usual react ecosystem
+in separate branches and then we make one react-master branch that
+will be target for our pull requests.
+
 * React (replaces View)
 * redux (replaces Model)
 * react-redux (replaces viewControllers and ViewPool)
