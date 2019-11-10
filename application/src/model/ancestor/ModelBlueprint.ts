@@ -7,6 +7,7 @@ export abstract class ModelBlueprint<ApplicationModel> {
     public abstract getState(): ApplicationModel;
 
     public abstract getNextId(): any;
+    public abstract findLastId(): void;
     
     public abstract setState(state: ApplicationModel): void;
 }

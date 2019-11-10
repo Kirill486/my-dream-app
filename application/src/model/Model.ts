@@ -24,6 +24,17 @@ export class ApplicationModel extends ModelBlueprint<IApplicationState> {
         this.state = initialState;
     }
 
+    // I feel like we need a ModelControllerHere.
+    public findLastId(): void {
+        let lastId = nextId;
+        this.state.toDoList.forEach((item) => {
+            if (item.id > lastId) {
+                lastId = item.id;
+            }
+        });
+        nextId = lastId + 1;
+    }
+
     public getNextId(): number {
         return nextId++;
     }
