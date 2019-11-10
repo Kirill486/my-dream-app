@@ -27,9 +27,9 @@ const scssRule = {
 
 const devConfig = {
     mode: "development",
-    entry: './src/client/index.tsx',
+    entry: './src/application.ts',
     output: {
-        path: path.join(__dirname, 'public', 'client', 'js'),
+        path: path.join(__dirname, 'dist', 'js'),
         filename: 'bundle.js',
     },
     module: {
