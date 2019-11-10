@@ -11,4 +11,8 @@ export class ManageRestoreToDos extends UseCaseBlueprint<IApplicationState, args
     buisinessLogic(payload: argsDTO) {
         this.state.toDoList = payload.todos;
     }
+
+    onModelSynq() {
+        this.model.findLastId();
+    }
 }
