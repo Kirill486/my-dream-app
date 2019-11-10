@@ -1,7 +1,7 @@
 import { ModelBlueprint } from "../../../../model/ancestor/ModelBlueprint";
 import { BuisinessLogicBlueprint } from "../../../ancestor/BuisinessLogicBlueprint";
 import { Logger } from "../../../../buisiness_logger/Logger";
-import { StorageBlueprint } from "../../../../buisiness_repository/ancestor/StorageBlueprint";
+import { ApplicationStorage } from "../../../../buisiness_repository/ancestor/StorageBlueprint";
 
 // So, after we know whats happening usually in our application use cases we can
 
@@ -13,11 +13,11 @@ export abstract class UseCaseBlueprint<ApplicationState, argsDTO> {
     logger: Logger;
 
     // we do not care that much what exact model is used to store data
-    storage: StorageBlueprint<ApplicationState, any>;  
+    storage: ApplicationStorage<ApplicationState>;  
 
     constructor(
         model: ModelBlueprint<ApplicationState>,
-        storage: StorageBlueprint<ApplicationState, any>,
+        storage: ApplicationStorage<ApplicationState>,
         loggingService: Logger,        
     ) {
         this.model = model;
