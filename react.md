@@ -21,3 +21,10 @@ react - redux - viewController
 redux - model
 
 redux-saga - buisiness_logic
+
+## Version history
+
+v1.0.0-React
+
+* buld implemented
+* react views implemented
