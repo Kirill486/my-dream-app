@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {ITitleViewModel} from './types'
+import './css/title.css';
 
 export const TitleView: React.FunctionComponent<ITitleViewModel> =
 (props: ITitleViewModel) => {
