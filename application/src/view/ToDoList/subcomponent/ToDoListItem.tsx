@@ -3,6 +3,7 @@ import {IToDoListItemProps} from './types';
 import { doNothing } from '../../../domain_types/definitions';
 import {createEmptyToDo} from '../../../domain_types/domain_fabric'
 import { backgroundColorAnimated } from '../../constants';
+import './css/item.css';
 
 const containerClass = 'item__container';
 const selectedContainerClass = 'item__container--selected';

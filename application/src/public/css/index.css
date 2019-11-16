@@ -1,8 +1,4 @@
 @import './root.css';
-@import './components/title.css';
-@import './components/list.css';
-@import './components/item.css';
-@import './components/details.css';
 
 body {
     background-color: var(--main__background-color);

@@ -4,6 +4,7 @@ import {doNothing} from '../../domain_types/definitions'
 import { createEmptyToDo } from '../../domain_types/domain_fabric';
 import { IToDo } from '../../domain_types/types';
 import { makeStringOfTime } from './behavior/timeHelper';
+import './css/details.css';
 
 export const ToDoDetails: React.FunctionComponent<ITodoDetailsVM> =
 (props) => {
@@ -61,7 +62,8 @@ export const ToDoDetails: React.FunctionComponent<ITodoDetailsVM> =
                         }}
                     />
                     <div className="todo-details-done-container">
-                        <input 
+                        <input
+                            id="todo-details-done"
                             className="todo-details-done" 
                             type="checkbox"
                             checked={toDoDone}
@@ -69,6 +71,7 @@ export const ToDoDetails: React.FunctionComponent<ITodoDetailsVM> =
                                 setDone(e.currentTarget.checked);
                             }}
                         />
+                        <label htmlFor="todo-details-done">Done</label>
                     </div> 
                     <button 
                         className="todo-detais__button todo-details__save background-color-animated"
