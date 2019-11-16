@@ -2,6 +2,7 @@ import { IToDo } from "../../../domain_types/types";
 
 export interface IToDoListItemStateProps {
     todo: IToDo,
+    isSelected: boolean,
 }
 
 export interface IToDoListItemDispatchProps {
