@@ -14,7 +14,7 @@ We replace the application concerns (model, view, buisiness_logic) one by one wi
 
 So, the 3rd party libraries will replace what we initially implemented.
 
-react - view
+react - view - **V**
 
 react - redux - viewController
 
