@@ -4,6 +4,7 @@ import {doNothing} from '../../domain_types/definitions'
 import { createEmptyToDo } from '../../domain_types/domain_fabric';
 import { IToDo } from '../../domain_types/types';
 import { makeStringOfTime } from './behavior/timeHelper';
+import './css/details.css';
 
 export const ToDoDetails: React.FunctionComponent<ITodoDetailsVM> =
 (props) => {
