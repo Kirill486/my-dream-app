@@ -1,7 +1,7 @@
 import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
 import { IApplicationState, IToDo } from "../../domain_types/types";
-import { ITodoDetailsVM, ITodoDetailsDataVM, ITodoDetailsActionVM, ToDoDetails } from "../../view/ToDoDetails/TodoDetails";
 import { ManageController } from "../../buisiness_logic/controllers/ManageController";
+import { ITodoDetailsVM, ITodoDetailsDataVM, ITodoDetailsActionVM } from "../../view/ToDoDetails/types";
 
 export class ToDoDetailsViewController extends ViewControllerBlueprint<IApplicationState, ITodoDetailsVM> {
     
@@ -24,20 +24,15 @@ export class ToDoDetailsViewController extends ViewControllerBlueprint<IApplicat
         }
 
         const actionVM: ITodoDetailsActionVM = {
-            saveToDo: () => {
-                const view = this.view as ToDoDetails;
-
+            saveToDo: (todoToAdd: IToDo) => {
                 const timeNow = Date.now()
 
                 const savedTime = timeNow.valueOf();
 
-                const done = view.getDone();
+                const {done, title, description} = todoToAdd;
                 const hasMadeDone = selectedToDo.done !== done;
                 const doneTime = hasMadeDone ? timeNow : selectedToDo.doneTime; 
 
-                const title = view.getTitle();
-                const description = view.getDescription();
-                
                 const todo: IToDo = {
                     ...selectedToDo,
                     title,
@@ -50,7 +45,7 @@ export class ToDoDetailsViewController extends ViewControllerBlueprint<IApplicat
         
                 ManageController.save.use({ todo });
             },
-            toggleDone: () => {
+            toggleDone: (id) => {
                 // this toggles done
             },
             removeToDo: () => {
