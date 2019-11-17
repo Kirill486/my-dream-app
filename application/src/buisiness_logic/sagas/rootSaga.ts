@@ -22,6 +22,4 @@ export function* rootSaga() {
     yield takeLatest('*', logUseCase);
     yield takeLatest('*', syncModelWithStorage);
 
-    // we still need this
-    yield takeEvery('*', fireChangedEvent);
 }
