@@ -1,5 +1,6 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
 import { IToDo, IApplicationState } from "../../../../domain_types/types";
+import { setToDoList } from "../../../../model/actions/toDoListActions";
 
 interface argsDTO {
     todos: IToDo[];
@@ -9,10 +10,6 @@ export class ManageRestoreToDos extends UseCaseBlueprint<IApplicationState, args
     useCaseTitle = 'ManageRestoreToDos';
 
     buisinessLogic(payload: argsDTO) {
-        this.state.toDoList = payload.todos;
-    }
-
-    onModelSynq() {
-        this.model.findLastId();
+        this.model.dispatch(setToDoList(payload.todos));
     }
 }

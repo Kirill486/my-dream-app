@@ -18,7 +18,7 @@ react - view - **V**
 
 react - redux - viewController
 
-redux - model
+redux - model - **V**
 
 redux-saga - buisiness_logic
 
@@ -28,3 +28,11 @@ v1.0.0-React
 
 * buld implemented
 * react views implemented
+
+v2.0.0-React
+
+* implemented redux store
+
+v2.0.1-React
+
+* some critical fixes to work with new model correctly

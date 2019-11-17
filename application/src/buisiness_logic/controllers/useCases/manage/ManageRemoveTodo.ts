@@ -1,14 +1,18 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
 import { IApplicationState } from "../../../../domain_types/types";
+import { setToDoList } from "../../../../model/actions/toDoListActions";
+import { app_id } from "../../../../domain_types/definitions";
 
 interface argsDTO {
-    id: any;
+    id: app_id;
 }
 
 export class ManageRemoveTodo extends UseCaseBlueprint<IApplicationState, argsDTO> {
     useCaseTitle = 'ManageRemoveToDo';
 
     buisinessLogic(payload: argsDTO) {
-        this.state.toDoList = this.state.toDoList.filter((item) => item.id !== payload.id);
+        const currentList = this.model.getState().toDoList;
+        const newList = currentList.filter((item) => item.id !== payload.id);
+        this.model.dispatch(setToDoList(newList));
     }
 }

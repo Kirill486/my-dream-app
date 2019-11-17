@@ -3,6 +3,7 @@ import {ITodoListVM} from './types';
 import { ToDoListItem } from './subcomponent/ToDoListItem';
 import {doNothing} from '../../domain_types/definitions'
 import { IToDoListItemProps } from './subcomponent/types';
+import './css/list.css';
 
 export const ToDoList: React.FunctionComponent<ITodoListVM> =
 (props: ITodoListVM) => {

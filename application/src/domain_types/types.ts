@@ -1,3 +1,5 @@
+import { app_id } from "./definitions";
+
 export interface IApplicationState {
     toDoList: IToDo[];
     filters: IFilterState;
@@ -10,7 +12,7 @@ export interface IFilterState {
 }
 
 export interface IToDo {
-    id: any;
+    id: app_id;
     title: string;
     description: string;
     done: boolean;

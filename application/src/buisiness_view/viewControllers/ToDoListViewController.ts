@@ -3,6 +3,7 @@ import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
 import { FilterController } from '../../buisiness_logic/controllers/FilterController';
 import { ManageController } from '../../buisiness_logic/controllers/ManageController';
 import { ITodoListDataVM, ITodoListActionVM, ITodoListVM } from '../../view/ToDoList/types';
+import { app_id } from '../../domain_types/definitions';
 
 export class TodoListViewController extends ViewControllerBlueprint<IApplicationState, ITodoListVM> {
     
@@ -27,8 +28,8 @@ export class TodoListViewController extends ViewControllerBlueprint<IApplication
         const todoListActionVM: ITodoListActionVM = {
             toggleShowDone: () => FilterController.toggleShowDone.use({}),
             addToDo: () => ManageController.add.use({}),
-            switchDoneToDo: (id: any) => ManageController.toggleDone.use({ id }),
-            selectToDo: (id: any) => FilterController.select.use({ id }),
+            switchDoneToDo: (id: app_id) => ManageController.toggleDone.use({ id }),
+            selectToDo: (id: app_id) => FilterController.select.use({ id }),
         };
         const toDoListVM: ITodoListVM = {
             ...todoListDataVM,

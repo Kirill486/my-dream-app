@@ -30,6 +30,7 @@ const devConfig = {
     entry: './src/application.ts',
     output: {
         path: path.join(__dirname, 'dist', 'js'),
+        publicPath: '/js/',
         filename: 'bundle.js',
     },
     module: {
