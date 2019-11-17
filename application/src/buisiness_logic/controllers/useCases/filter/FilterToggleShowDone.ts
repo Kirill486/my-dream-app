@@ -1,5 +1,6 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
 import { IApplicationState } from "../../../../domain_types/types";
+import { toggleShowDone } from "../../../../model/actions/filterActions";
 
 interface IToggleShowDoneArgsDTO { };
 
@@ -7,6 +8,6 @@ export class FilterToggleShowDone extends UseCaseBlueprint<IApplicationState, IT
     useCaseTitle = 'ToggleShowDone';
 
     buisinessLogic() {
-        this.state.filters.showDone = !this.state.filters.showDone;
+        this.model.dispatch(toggleShowDone());
     }
 }

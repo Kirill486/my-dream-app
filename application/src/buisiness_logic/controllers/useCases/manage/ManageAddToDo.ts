@@ -1,6 +1,7 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
-import { IToDo, IApplicationState } from "../../../../domain_types/types";
+import { IApplicationState } from "../../../../domain_types/types";
 import { createEmptyToDo } from "../../../../domain_types/domain_fabric";
+import { setToDoList } from "../../../../model/actions/toDoListActions";
 
 export class ManageAddToDo extends UseCaseBlueprint<IApplicationState, {}> {
     useCaseTitle = 'ManageAddToDo';
@@ -8,18 +9,10 @@ export class ManageAddToDo extends UseCaseBlueprint<IApplicationState, {}> {
     static toDoInitialTitle = '....Summarize your note....';
     static toDoInitialDescription = '....Type here what shoud be done....';
 
-    private createEmptyToDo() {
-        const id = this.model.getNextId();
-
-        const todo: IToDo = {
-            ...createEmptyToDo(),
-            id,
-        } 
-        return todo;
-    }
-
     buisinessLogic() {
-
-        this.state.toDoList = [...this.state.toDoList, this.createEmptyToDo()];
+        const emptyToDo = createEmptyToDo();
+        const currentList = this.model.getState().toDoList;
+        const newToDoState = [...currentList, emptyToDo];
+        this.model.dispatch(setToDoList(newToDoState));     
     }    
 }

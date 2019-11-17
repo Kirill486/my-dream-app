@@ -1,8 +1,10 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
 import { IApplicationState, IFilterState } from "../../../../domain_types/types";
+import { setSelected } from "../../../../model/actions/filterActions";
+import { app_id } from "../../../../domain_types/definitions";
 
 interface ISelectArgsDTO {
-    id?: any;
+    id?: app_id;
 }
 
 export class FilterSelect extends UseCaseBlueprint<IApplicationState, ISelectArgsDTO> {
@@ -10,8 +12,6 @@ export class FilterSelect extends UseCaseBlueprint<IApplicationState, ISelectArg
     useCaseTitle = 'FilterSelect';
 
     buisinessLogic(payload) {
-        const filters: IFilterState = {...this.state.filters};
-        filters.selected = payload.id;
-        this.state.filters = filters;
+        this.model.dispatch(setSelected(payload.id));
     }
 }

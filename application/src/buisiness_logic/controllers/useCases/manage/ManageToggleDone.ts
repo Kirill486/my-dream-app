@@ -1,5 +1,6 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
 import { IApplicationState } from "../../../../domain_types/types";
+import { setToDoList } from "../../../../model/actions/toDoListActions";
 
 interface argsDTO {
     id: any;
@@ -9,7 +10,9 @@ export class ManageToggleDone extends UseCaseBlueprint<IApplicationState, argsDT
     useCaseTitle = 'ManageToggleDone';
 
     buisinessLogic(payload: argsDTO) {
-        this.state.toDoList = this.state.toDoList.map((item) => {
+        const {toDoList} = this.model.getState();
+
+        const newToDoList = toDoList.map((item) => {
             if (item.id === payload.id) {
                 const timeNow = Date.now();
                 const doneStatus = !item.done;
@@ -20,6 +23,7 @@ export class ManageToggleDone extends UseCaseBlueprint<IApplicationState, argsDT
                 }
             }
             return item;
-        })
+        });
+        this.model.dispatch(setToDoList(newToDoList));
     }
 }
