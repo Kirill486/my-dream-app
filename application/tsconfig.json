@@ -9,7 +9,7 @@
     "moduleResolution": "node"
   },
   "include": [
-    "src/**/*.ts", "src/buisiness_view/viewControllers/ancestor/ViewControllerBlueprint.tsx"
+    "src/**/*.ts", "src/buisiness_view/viewControllers/ancestor/ViewControllerBlueprint.tsx", "src/application.tsx"
   ],
   "exclude": [ ]
 }

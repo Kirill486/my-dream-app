@@ -27,7 +27,7 @@ const scssRule = {
 
 const devConfig = {
     mode: "development",
-    entry: './src/application.ts',
+    entry: './src/application.tsx',
     output: {
         path: path.join(__dirname, 'dist', 'js'),
         publicPath: '/js/',
