@@ -8,4 +8,4 @@ export interface IPayloadAction<Payload> extends Action {
     payload: Payload;
 }
 
-export type app_id = number;
+export type app_id = string;

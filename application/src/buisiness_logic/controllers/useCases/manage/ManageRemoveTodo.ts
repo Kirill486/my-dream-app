@@ -1,9 +1,10 @@
 import { UseCaseBlueprint } from "../ancestor/UseCaseBlueprint";
 import { IApplicationState } from "../../../../domain_types/types";
 import { setToDoList } from "../../../../model/actions/toDoListActions";
+import { app_id } from "../../../../domain_types/definitions";
 
 interface argsDTO {
-    id: any;
+    id: app_id;
 }
 
 export class ManageRemoveTodo extends UseCaseBlueprint<IApplicationState, argsDTO> {

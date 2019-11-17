@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {ITodoDetailsVM} from './types';
-import {doNothing} from '../../domain_types/definitions'
+import {doNothing, app_id} from '../../domain_types/definitions'
 import { createEmptyToDo } from '../../domain_types/domain_fabric';
 import { IToDo } from '../../domain_types/types';
 import { makeStringOfTime } from './behavior/timeHelper';
@@ -115,7 +115,7 @@ export const ToDoDetails: React.FunctionComponent<ITodoDetailsVM> =
                     <button 
                         className="todo-detais__button todo-detais__delete"
                         onClick={() => {
-                            const id = selectedToDo.id as number;
+                            const id = selectedToDo.id as app_id;
                             props.removeToDo(id);
                         }}
                     >

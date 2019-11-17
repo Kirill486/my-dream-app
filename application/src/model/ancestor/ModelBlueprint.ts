@@ -1,4 +1,5 @@
 import { Action } from "redux";
+import { app_id } from "../../domain_types/definitions";
 
 export abstract class ModelBlueprint<ApplicationModel> {
     
@@ -10,7 +11,7 @@ export abstract class ModelBlueprint<ApplicationModel> {
     // to avoid bugs related to unexpected mutation
     public abstract getState(): ApplicationModel;
 
-    public abstract getNextId(): any;
+    public abstract getNextId(): app_id;
     public abstract findLastId(): void;
     
     public abstract setState(state: ApplicationModel): void;

@@ -1,6 +1,8 @@
 import { ModelBlueprint } from "./ancestor/ModelBlueprint";
 import { IApplicationState } from "../domain_types/types";
 import { LoggingService } from "../logging_service/LoggingService";
+import { app_id, doNothing } from "../domain_types/definitions";
+import * as uuid from 'uuid';
 
 const initialState: IApplicationState = {
     filters: {
@@ -26,17 +28,11 @@ export class ApplicationModel extends ModelBlueprint<IApplicationState> {
 
     // I feel like we need a ModelControllerHere.
     public findLastId(): void {
-        let lastId = nextId;
-        this.state.toDoList.forEach((item) => {
-            if (item.id > lastId) {
-                lastId = item.id;
-            }
-        });
-        nextId = lastId + 1;
+        doNothing();
     }
 
-    public getNextId(): number {
-        return nextId++;
+    public getNextId(): app_id {
+        return uuid.v4();
     }
 
     public getState() {
