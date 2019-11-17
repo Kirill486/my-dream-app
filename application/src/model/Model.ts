@@ -48,6 +48,8 @@ export class ApplicationModel extends ModelBlueprint<IApplicationState> {
         LoggingService.logToConsoleTable(state);
     }
 
+    public shouldManuallySync = true;
+
     public dispatch() {
         // old model does not provide any action-based API
         throw new Error('Dispatch is not implemented');

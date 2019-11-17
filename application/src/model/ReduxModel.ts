@@ -22,6 +22,8 @@ export class ReduxModel extends ModelBlueprint<IApplicationState> {
         return this.store.getState();
     }
 
+    public shouldManuallySync = false;
+
     public setState() {
         throw new Error('Not implemented');
     }
