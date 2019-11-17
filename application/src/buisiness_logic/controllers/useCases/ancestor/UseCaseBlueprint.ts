@@ -33,7 +33,7 @@ export abstract class UseCaseBlueprint<ApplicationState, argsDTO> {
         this.syncModel();
         this.onModelSynq();
         this.logUseCase(payloadDTO);
-        this.syncModelWithStorage(this.state);
+        this.syncModelWithStorage(this.model.getState());
         BuisinessLogicBlueprint.fireChangedEvent();
     }
 
