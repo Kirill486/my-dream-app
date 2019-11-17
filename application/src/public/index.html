@@ -9,69 +9,11 @@
 </head>
 <body>
 
-    <template id="template__title">
-        <div class="title__container">
-            <div class="title__upscore"></div>
-            <h1 class="title__title"></h1>
-        </div>
-    </template>
-
-    <template id="template__todo">
-        <div class="item__container background-color-animated">
-            <span class="item__title"></span>
-            <span class="item__select-area">--->></span>
-            <input class="item__done" type="checkbox">
-        </div>
-    </template>    
-
-    <template id="template__todo-list">
-        <div class="todo-list__container">
-            <div class="todo-list__title-row">
-                <button class="todo-list__add-todo background-color-animated">+</button>
-                <div class="todo-list__show-done-container">
-                    <input class="todo-list__show-done" type="checkbox">Show done</input>
-                </div>
-            </div>
-            <div class="todo-list__items-container"></div>
-        </div>
-    </template>
-
-    <template id="template__todo-details">
-        <div class="todo-details__container">
-            <div class="todo-details__section todo-details__header">
-                <input class="todo-details-title-input" type="text"></input>
-                <div class="todo-details-done-container">
-                    <input class="todo-details-done" type="checkbox">Done</input>
-                </div> 
-                <button class="todo-detais__button todo-details__save background-color-animated">Save</button>
-            </div>
-            
-            <div class="todo-details__editor">
-                <textarea class="todo-details-content">
-                </textarea>                
-            </div>
-            <div class="todo-details__section todo-details__statistic">
-                <div class="todo-datails__statistic-container todo-datails__created-container">
-                    <span class="todo-datails__created"></span>
-                </div>
-                <div class="todo-datails__statistic-container todo-datails__saved-container">
-                    <span class="todo-datails__saved"></span>
-                </div>
-                <div class="todo-datails__statistic-container todo-datails__done-container">
-                    <span class="todo-datails__done"></span>
-                </div>
-            </div>
-            <div class="todo-details__section todo-details-danger background-color-animated">
-                <button class="todo-detais__button todo-detais__delete">Delete</button>
-            </div>
-        </div>
-    </template>
-
     <main>
         <div id="app-title__container"></div>
         <div id="app-todo-list__container"></div>
         <div id="app-todo-details__container"></div>
     </main>
-    <script data-main="./js/application.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script data-main="./js/bundle.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
 </body>
 </html>

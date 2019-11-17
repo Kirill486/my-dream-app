@@ -47,6 +47,13 @@ export class ApplicationModel extends ModelBlueprint<IApplicationState> {
         this.state = state;
         LoggingService.logToConsoleTable(state);
     }
+
+    public shouldManuallySync = true;
+
+    public dispatch() {
+        // old model does not provide any action-based API
+        throw new Error('Dispatch is not implemented');
+    }
 }
 
-export const appStore = new ApplicationModel(initialState);
+// export const appStore = new ApplicationModel(initialState);

@@ -1,5 +1,6 @@
 import { ViewPool } from "./buisiness_view/viewPool/ViewPool";
-import { appStore, ApplicationModel } from "./model/Model";
+// import { appStore, ApplicationModel } from "./model/Model";
+import { appStore, ReduxModel } from "./model/ReduxModel";
 import { BuisinessLogicBlueprint } from "./buisiness_logic/ancestor/BuisinessLogicBlueprint";
 import { applicationStorage } from "./buisiness_repository/PermanentStorage";
 import { ManageController } from "./buisiness_logic/controllers/ManageController";
@@ -15,7 +16,7 @@ const startApplication = async () => {
 
     interface IAppDocument extends Document {
         conserns: {
-            model: ApplicationModel,
+            model: ReduxModel,
             buisinessLogic: typeof BuisinessLogicBlueprint,
         }
     }

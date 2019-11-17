@@ -4,10 +4,12 @@
     "module": "amd",
     "outDir": "./dist/js",
     "lib": [ "es6", "dom" ],
-    "sourceMap": true
+    "sourceMap": true,
+    "jsx": "react",
+    "moduleResolution": "node"
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts", "src/buisiness_view/viewControllers/ancestor/ViewControllerBlueprint.tsx"
   ],
   "exclude": [ ]
 }

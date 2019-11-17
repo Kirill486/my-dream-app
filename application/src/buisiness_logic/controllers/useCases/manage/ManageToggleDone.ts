@@ -6,7 +6,7 @@ interface argsDTO {
 }
 
 export class ManageToggleDone extends UseCaseBlueprint<IApplicationState, argsDTO> {
-    useCaseTitle = 'ManageRemoveToDo';
+    useCaseTitle = 'ManageToggleDone';
 
     buisinessLogic(payload: argsDTO) {
         this.state.toDoList = this.state.toDoList.map((item) => {
