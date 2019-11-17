@@ -20,7 +20,7 @@ react - redux - viewController
 
 redux - model - **V**
 
-redux-saga - buisiness_logic
+redux-saga - buisiness_logic - **V**
 
 ## Version history
 
@@ -36,3 +36,7 @@ v2.0.0-React
 v2.0.1-React
 
 * some critical fixes to work with new model correctly
+
+v3.0.0-React
+
+* buisiness logic implemented using redux-saga

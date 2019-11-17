@@ -1,7 +1,8 @@
 import { ViewControllerBlueprint } from "./ancestor/ViewControllerBlueprint";
 import { IApplicationState, IToDo } from "../../domain_types/types";
-import { ManageController } from "../../buisiness_logic/controllers/ManageController";
 import { ITodoDetailsVM, ITodoDetailsDataVM, ITodoDetailsActionVM } from "../../view/ToDoDetails/types";
+import { applicationModel } from "../../model/configureStore";
+import { saveAction, removeAction } from "../../buisiness_logic/sagas/actions/manageSagaActions";
 
 export class ToDoDetailsViewController extends ViewControllerBlueprint<IApplicationState, ITodoDetailsVM> {
     
@@ -43,14 +44,14 @@ export class ToDoDetailsViewController extends ViewControllerBlueprint<IApplicat
 
                 }
         
-                ManageController.save.use({ todo });
+                applicationModel.dispatch(saveAction(todo));
             },
             toggleDone: (id) => {
                 // this toggles done
             },
             removeToDo: () => {
                 const id = selectedToDo.id;
-                ManageController.remove.use({id});
+                applicationModel.dispatch(removeAction(id));
             },
         }
 
