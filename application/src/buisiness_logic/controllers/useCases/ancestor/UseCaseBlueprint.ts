@@ -28,13 +28,17 @@ export abstract class UseCaseBlueprint<ApplicationState, argsDTO> {
     abstract buisinessLogic(payloadDTO: argsDTO);
 
     public use(payloadDTO: argsDTO) {
-        this.state = this.model.getState();
-        this.buisinessLogic(payloadDTO);
-        this.syncModel();
-        this.onModelSynq();
-        this.logUseCase(payloadDTO);
-        this.syncModelWithStorage(this.model.getState());
-        BuisinessLogicBlueprint.fireChangedEvent();
+
+
+        // map buisiness logic to rootSaga
+
+        // this.state = this.model.getState(); no longer need this
+        // this.buisinessLogic(payloadDTO); our buisiness logic is in the sagas now
+        // this.syncModel(); this will be done for us automatically
+        // this.onModelSynq(); this will be part of saga
+        // this.logUseCase(payloadDTO);
+        // this.syncModelWithStorage(this.model.getState());
+        // BuisinessLogicBlueprint.fireChangedEvent();
     }
 
     private syncModel() {
@@ -47,19 +51,19 @@ export abstract class UseCaseBlueprint<ApplicationState, argsDTO> {
         // no action by default
     }
 
-    private logUseCase(dto: argsDTO) {
-        this.logger.LogOne(this.getInfo(dto));        
-    } 
+    // private logUseCase(dto: argsDTO) {
+    //     this.logger.LogOne(this.getInfo(dto));        
+    // } 
 
-    private syncModelWithStorage(state: ApplicationState) {
-        this.storage.store(state);
-    }
+    // private syncModelWithStorage(state: ApplicationState) {
+    //     this.storage.store(state);
+    // }
 
-    private getInfo(dto: argsDTO) {
-        return {
-            case: this.useCaseTitle,
-            time: Date.now(),
-            actionDTO: dto,
-        }
-    }
+    // private getInfo(dto: argsDTO) {
+    //     return {
+    //         case: this.useCaseTitle,
+    //         time: Date.now(),
+    //         actionDTO: dto,
+    //     }
+    // }
 }
