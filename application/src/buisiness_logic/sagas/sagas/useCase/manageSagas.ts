@@ -1,6 +1,6 @@
 import { Action } from "redux";
 import { call } from "@redux-saga/core/effects";
-import { logger } from "../../../buisiness_logger/Logger";
+import { logger } from "../../../../buisiness_logger/Logger";
 
 export function* add (action: Action) {
     yield call(logger.LogOne.bind(logger), `add`);
