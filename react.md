@@ -28,3 +28,7 @@ v1.0.0-React
 
 * buld implemented
 * react views implemented
+
+v2.0.0-WIP
+
+* redux model
