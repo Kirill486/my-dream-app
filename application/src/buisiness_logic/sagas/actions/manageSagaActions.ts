@@ -26,7 +26,8 @@ export const saveAction: ActionCreator<IPayloadAction<IToDo>> =
     payload: todo,
 })
 
-export const restoreAction: ActionCreator<Action> =
-() => ({
+export const restoreAction: ActionCreator<IPayloadAction<IToDo[]>> =
+(todos: IToDo[]) => ({
     type: manageActionTypes.restore,
+    payload: todos,
 })
