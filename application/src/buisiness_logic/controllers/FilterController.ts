@@ -1,5 +1,5 @@
 import { FilterSelect } from "./useCases/filter/FilterSelect";
-import { appStore } from "../../model/Model";
+import { appStore } from "../../model/ReduxModel";
 import { FilterToggleShowDone } from "./useCases/filter/FilterToggleShowDone";
 import { logger } from "../../buisiness_logger/Logger";
 import { applicationStorage } from "../../buisiness_repository/PermanentStorage";

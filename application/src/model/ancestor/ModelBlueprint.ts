@@ -1,6 +1,10 @@
+import { Action } from "redux";
+
 export abstract class ModelBlueprint<ApplicationModel> {
     
     state: ApplicationModel;
+
+    public abstract shouldManuallySync: boolean;
     
     // return a new object each time
     // to avoid bugs related to unexpected mutation
@@ -10,4 +14,5 @@ export abstract class ModelBlueprint<ApplicationModel> {
     public abstract findLastId(): void;
     
     public abstract setState(state: ApplicationModel): void;
+    public abstract dispatch(action: Action): void;
 }
