@@ -5,7 +5,8 @@
     "outDir": "./dist/js",
     "lib": [ "es6", "dom" ],
     "sourceMap": true,
-    "jsx": "react"
+    "jsx": "react",
+    "moduleResolution": "node"
   },
   "include": [
     "src/**/*.ts", "src/buisiness_view/viewControllers/ancestor/ViewControllerBlueprint.tsx"
