@@ -3,6 +3,7 @@ import { filtersReducer } from "./reducers/filtersReducer";
 import { toDoListReducer } from "./reducers/toDoListReducer";
 import { miscReducer } from "./reducers/miscReducer";
 import { IApplicationState } from "../domain_types/types";
+import {composeWithDevTools} from 'redux-devtools-extension';
 
 const applicationReducer = combineReducers({
     toDoList: toDoListReducer,
@@ -10,4 +11,4 @@ const applicationReducer = combineReducers({
     misc: miscReducer,
 });
 
-export const applicationModel: Store<IApplicationState> = createStore(applicationReducer);
+export const applicationModel: Store<IApplicationState> = createStore(applicationReducer, composeWithDevTools());
