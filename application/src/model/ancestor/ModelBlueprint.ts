@@ -3,6 +3,8 @@ import { Action } from "redux";
 export abstract class ModelBlueprint<ApplicationModel> {
     
     state: ApplicationModel;
+
+    public abstract shouldManuallySync: boolean;
     
     // return a new object each time
     // to avoid bugs related to unexpected mutation
