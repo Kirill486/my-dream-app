@@ -38,9 +38,7 @@ export abstract class UseCaseBlueprint<ApplicationState, argsDTO> {
     }
 
     private syncModel() {
-        if (this.model.shouldManuallySync) {
-            this.model.setState(this.state);
-        }
+        this.model.setState(this.state);
     }
 
     onModelSynq() {
