@@ -3,11 +3,12 @@ import { ViewPool } from "./buisiness_view/viewPool/ViewPool";
 import { appStore, ReduxModel } from "./model/ReduxModel";
 import { BuisinessLogicBlueprint } from "./buisiness_logic/ancestor/BuisinessLogicBlueprint";
 import { applicationStorage } from "./buisiness_repository/PermanentStorage";
-import { ManageController } from "./buisiness_logic/controllers/ManageController";
+import { applicationModel } from "./model/configureStore";
+import { restoreAction } from "./buisiness_logic/sagas/actions/manageSagaActions";
 
 const startApplication = async () => {
-    const todos = await applicationStorage.get();
-    ManageController.restore.use(todos);
+    const {todos} = await applicationStorage.get();
+    applicationModel.dispatch(restoreAction(todos));
 
     const applicationViewPool = new ViewPool(appStore);
 
