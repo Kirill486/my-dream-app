@@ -32,3 +32,7 @@ v1.0.0-React
 v2.0.0-React
 
 * implemented redux store
+
+v2.0.1-React
+
+* some critical fixes to work with new model correctly
