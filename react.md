@@ -18,7 +18,7 @@ react - view - **V**
 
 react - redux - viewController
 
-redux - model
+redux - model - **V**
 
 redux-saga - buisiness_logic
 
