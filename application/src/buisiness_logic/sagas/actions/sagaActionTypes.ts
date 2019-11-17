@@ -19,5 +19,5 @@ export const manageActionTypes = Object.freeze({
 
 export const sagaActionTypes = Object.freeze({
     ...filterSagaActionTypes,
-
+    ...manageActionTypes,
 });
