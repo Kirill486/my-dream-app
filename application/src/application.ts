@@ -7,7 +7,7 @@ import { applicationModel } from "./model/configureStore";
 import { restoreAction } from "./buisiness_logic/sagas/actions/manageSagaActions";
 
 const startApplication = async () => {
-    const todos = await applicationStorage.get();
+    const {todos} = await applicationStorage.get();
     applicationModel.dispatch(restoreAction(todos));
 
     const applicationViewPool = new ViewPool(appStore);
