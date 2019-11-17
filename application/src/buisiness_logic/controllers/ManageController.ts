@@ -1,5 +1,5 @@
 import { ManageAddToDo } from "./useCases/manage/ManageAddToDo";
-import { appStore } from "../../model/Model";
+import { appStore } from "../../model/ReduxModel";
 import { ManageRemoveTodo } from "./useCases/manage/ManageRemoveTodo";
 import { ManageToggleDone } from "./useCases/manage/ManageToggleDone";
 import { ManageSaveToDo } from "./useCases/manage/ManageSaveToDo";

@@ -54,4 +54,4 @@ export class ApplicationModel extends ModelBlueprint<IApplicationState> {
     }
 }
 
-export const appStore = new ApplicationModel(initialState);
+// export const appStore = new ApplicationModel(initialState);

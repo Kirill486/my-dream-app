@@ -3,6 +3,7 @@ import { IApplicationState } from "../domain_types/types";
 import { Store, Action } from "redux";
 import { doNothing } from "../domain_types/definitions";
 import uuid = require("uuid");
+import { applicationModel } from "./configureStore";
 
 export class ReduxModel extends ModelBlueprint<IApplicationState> {
     
@@ -33,3 +34,5 @@ export class ReduxModel extends ModelBlueprint<IApplicationState> {
         return uuid.v4();
     }
 }
+
+export const appStore = new ReduxModel(applicationModel);
