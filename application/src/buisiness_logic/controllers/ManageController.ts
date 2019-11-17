@@ -11,6 +11,6 @@ export class ManageController {
     public static add = new ManageAddToDo(appStore, applicationStorage, logger);
     public static remove = new ManageRemoveTodo(appStore, applicationStorage, logger);
     public static toggleDone = new ManageToggleDone(appStore, applicationStorage, logger);
-    public static  save = new ManageSaveToDo(appStore, applicationStorage, logger);
+    public static save = new ManageSaveToDo(appStore, applicationStorage, logger);
     public static restore = new ManageRestoreToDos(appStore, applicationStorage, logger);
 }
