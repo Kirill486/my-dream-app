@@ -1,9 +1,9 @@
-import { takeEvery, call, select as sagaSelect, takeLatest} from "@redux-saga/core/effects";
+import { takeEvery, call, takeLatest} from "@redux-saga/core/effects";
 import { manageActionTypes, filterSagaActionTypes } from "./actions/sagaActionTypes";
 import { add, remove, restore, save, toggleDone } from "./sagas/useCase/manageSagas";
-import { select } from "./sagas/useCase/filterSagas";
-import { BuisinessLogicBlueprint } from "../ancestor/BuisinessLogicBlueprint";
-import { logUseCase, syncModelWithStorage } from "./sagas/shared/shared";
+import { select, toggleShowDone } from "./sagas/useCase/filterSagas";
+import { logUseCase, syncModelWithStorage, fireChangedEvent } from "./sagas/shared/shared";
+import { toggleDoneAction } from "./actions/manageSagaActions";
 
 export function* rootSaga() {
     
@@ -17,11 +17,11 @@ export function* rootSaga() {
 
     // filter controller
     yield takeEvery(filterSagaActionTypes.select, select);
-    yield takeEvery(filterSagaActionTypes.toggleShowDone, select);
+    yield takeEvery(filterSagaActionTypes.toggleShowDone, toggleShowDone);
 
     yield takeLatest('*', logUseCase);
     yield takeLatest('*', syncModelWithStorage);
 
     // we still need this
-    yield call(BuisinessLogicBlueprint.fireChangedEvent);
+    yield takeEvery('*', fireChangedEvent);
 }
